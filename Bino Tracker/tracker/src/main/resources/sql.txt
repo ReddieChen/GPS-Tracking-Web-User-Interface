@@ -1,0 +1,26 @@
+
+
+CREATE TABLE positions (
+ 	id INT(15) NOT NULL auto_increment,
+  	unitId VARCHAR(100) NOT NULL,
+  	prefix VARCHAR(100) NOT NULL,
+  	gpstime DATETIME NOT NULL,
+  	rtctime DATETIME NOT NULL,
+  	pstime DATETIME NOT NULL,
+  	longitude DOUBLE(10, 5) NOT NULL,
+  	latitude DOUBLE(10, 5) NOT NULL,
+  	heading INT NOT NULL,
+  	reportId INT NOT NULL,
+  	odometer INT NOT NULL,
+  	hdop INT NOT NULL,
+  	inputStatus INT NOT NULL,
+  	speed INT NOT NULL,
+  	outputStatus INT NOT NULL,
+  	analog INT NOT NULL,
+  	driverId INT NOT NULL,
+  	temperature1 VARCHAR(100) NOT NULL,
+  	temperature2 VARCHAR(100) NOT NULL,
+  	text VARCHAR(500) NOT NULL,
+  	PRIMARY KEY (id)
+ );
+  
