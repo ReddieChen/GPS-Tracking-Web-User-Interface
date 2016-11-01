@@ -27,11 +27,11 @@ var playbackMarker;
 
 $(document).ready(function() {
 	initObjectListPanel();
-	$('#poi-listview-panel').hide();
-	$('#geofence-tool-panel').hide();
-	$('#geofence-listview-panel').hide();
-	$('#playback-control-panel').hide();
-	$('#playback-object-listview-panel').hide();
+	// $('#poi-listview-panel').hide();
+	// $('#geofence-tool-panel').hide();
+	// $('#geofence-listview-panel').hide();
+	// $('#playback-control-panel').hide();
+	// $('#playback-object-listview-panel').hide();
 	$('select').material_select();
 	$('.tooltipped').tooltip({
 		delay : 50
@@ -114,8 +114,8 @@ function initMap() {
 		streetViewControl : true,
 		overviewMapControl : true,
 		center : {
-			lat : 25.048215,
-			lng : 121.517123
+			lat : 33.246573,
+			lng : 131.624879
 		},
 		zoom : 15,
 		mapTypeId : google.maps.MapTypeId.ROADMAP,

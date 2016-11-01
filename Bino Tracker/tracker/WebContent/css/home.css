@@ -20,6 +20,10 @@ html, body {
 	filter: blur(15px);
 }
 
+#poi-listview-panel {
+	display: none;
+}
+
 /* List view panel */
 .listview-panel {
 	width: 300px;
@@ -212,6 +216,7 @@ span.badge.new {
 	height: 300px;
 	opacity: 0.99;
 	border-radius: 10px 10px 10px 10px;
+	display: none;
 }
 
 .geofence-tool-header {
@@ -254,6 +259,7 @@ span.badge.new {
 	height: 450px;
 	opacity: 0.99;
 	border-radius: 10px 10px 0px 0px;
+	display: none;
 }
 
 .geofence-listview-search-input {
@@ -495,6 +501,7 @@ i.medium {
 
 .right-side-navigation-label {
 	text-align: center;
+	font-size: 10px !important;
 }
 
 #employee-pnael {
@@ -720,6 +727,7 @@ li span {
 	opacity: 0.99;
 	background-color: #fafafa;
 	border-radius: 5px 5px 5px 5px;
+	display: none;
 }
 
 .playback-pnael-header {
@@ -863,4 +871,8 @@ li span {
 	border-bottom-color: #e1f5fe;
 	width: 300px;
 	height: 40px;
+}
+
+#playback-object-listview-panel {
+	display: none;
 }

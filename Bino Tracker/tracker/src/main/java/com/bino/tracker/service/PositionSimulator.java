@@ -106,7 +106,7 @@ public class PositionSimulator {
 		p.setTemperature1("");
 		p.setTemperature2("");
 		p.setText("");
-		p.setUnitId("Vehicle 01");
+		p.setUnitId("車両01");
 		p.setExtraGps(4);
 		p.setExtraGsm(20);
 		p.setExtraEngineOn(true);
@@ -133,7 +133,7 @@ public class PositionSimulator {
 		p.setTemperature1("");
 		p.setTemperature2("");
 		p.setText("");
-		p.setUnitId("Vehicle 02");
+		p.setUnitId("車両02");
 		p.setExtraGps(0);
 		p.setExtraGsm(0);
 		p.setExtraEngineOn(true);
@@ -158,7 +158,7 @@ public class PositionSimulator {
 		p.setTemperature1("");
 		p.setTemperature2("");
 		p.setText("");
-		p.setUnitId("Vehicle 03");
+		p.setUnitId("車両03");
 		p.setExtraGps(4);
 		p.setExtraGsm(0);
 		p.setExtraEngineOn(false);
@@ -183,7 +183,7 @@ public class PositionSimulator {
 		p.setTemperature1("");
 		p.setTemperature2("");
 		p.setText("");
-		p.setUnitId("Vehicle 04");
+		p.setUnitId("車両04");
 		p.setExtraGps(4);
 		p.setExtraGsm(99);
 		p.setExtraEngineOn(false);
@@ -361,13 +361,21 @@ public class PositionSimulator {
 		// addPositionEvent(p.getUnitId(), p.getUnitId() + " turns off engine. " + frame1Index);
 		// }
 		if (frame1Index == 17) {
-			addPositionEvent(p.getUnitId(), p.getUnitId() + " enters Binodata Office.");
+			// addPositionEvent(p.getUnitId(), p.getUnitId() + " enters Binodata Office.");
+			String poiName = "Binodata Office";
+			addPositionEvent(p.getUnitId(), poiName + " に " + p.getUnitId() + "が入りました");
 		} else if (frame1Index == 23) {
-			addPositionEvent(p.getUnitId(), p.getUnitId() + " leaves Binodata Office.");
+			// addPositionEvent(p.getUnitId(), p.getUnitId() + " leaves Binodata Office.");
+			String poiName = "Binodata Office";
+			addPositionEvent(p.getUnitId(), poiName + " から " + p.getUnitId() + "が出ました");
 		} else if (frame1Index == 38) {
-			addPositionEvent(p.getUnitId(), p.getUnitId() + " enters Zhongshan elementary school station.");
+			// addPositionEvent(p.getUnitId(), p.getUnitId() + " enters Zhongshan elementary school station.");
+			String poiName = "Zhongshan elementary school station";
+			addPositionEvent(p.getUnitId(), poiName + " に " + p.getUnitId() + "が入りました");
 		} else if (frame1Index == 40) {
-			addPositionEvent(p.getUnitId(), p.getUnitId() + " leaves Zhongshan elementary school station.");
+			// addPositionEvent(p.getUnitId(), p.getUnitId() + " leaves Zhongshan elementary school station.");
+			String poiName = "Zhongshan elementary school station";
+			addPositionEvent(p.getUnitId(), poiName + " から " + p.getUnitId() + "が出ました");
 		}
 	}
 

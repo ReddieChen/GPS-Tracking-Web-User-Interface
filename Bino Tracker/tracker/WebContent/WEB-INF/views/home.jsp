@@ -20,18 +20,18 @@
 			<div class="listview-header-icon">
 				<i class="small material-icons light-blue-text text-lighten-5">navigation</i>
 			</div>
-			<span class="listview-header-title grey-text text-lighten-5">Tracking Units</span>
+			<span class="listview-header-title grey-text text-lighten-5">端末追跡</span>
 		</div>
 		<div class="listview-search">
 			<div class="listview-search-input">
-				<input class="light-blue-text text-darken-4" id="search" type="text" placeholder="Search Units">
+				<input class="light-blue-text text-darken-4" id="search" type="text" placeholder="端末検索">
 			</div>
 			<div class="listview-search-icon">
 				<i class="small material-icons grey-text text-lighten-5">search</i>
 			</div>
 		</div>
 		<div class="listview-column-header">
-			<div class="object-listview-column">Unit Id</div>
+			<div class="object-listview-column">端末ID</div>
 			<div class="listview-icon-column">
 				<i class="small-icon material-icons tooltipped" data-position="bottom" data-delay="50" data-tooltip="GSM">settings_input_antenna</i>
 			</div>
@@ -39,7 +39,7 @@
 				<i class="small-icon material-icons tooltipped" data-position="bottom" data-delay="50" data-tooltip="GPS">language</i>
 			</div>
 			<div class="listview-icon-column">
-				<i class="small-icon material-icons tooltipped" data-position="bottom" data-delay="50" data-tooltip="Engine Event">power_settings_new</i>
+				<i class="small-icon material-icons tooltipped" data-position="bottom" data-delay="50" data-tooltip="エンジン情報">power_settings_new</i>
 			</div>
 		</div>
 		<div>
@@ -138,7 +138,7 @@
 			<div class="listview-header-icon">
 				<i class="small material-icons light-blue-text text-lighten-5">location_on</i>
 			</div>
-			<span class="listview-header-title grey-text text-lighten-5">POI</span>
+			<span class="listview-header-title grey-text text-lighten-5">ポイント</span>
 		</div>
 		<div class="listview-search">
 			<div class="listview-search-input">
@@ -178,19 +178,19 @@
 			<div class="geofence-button-icon">
 				<img src="/tracker/img/tool-normal.png" class="geofence-button-icon-img">
 			</div>
-			<div class="geofence-button-label">Normal</div>
+			<div class="geofence-button-label">通常</div>
 		</div>
 		<div id="geofence-rectangle" class="geofence-button">
 			<div class="geofence-button-icon">
 				<img src="/tracker/img/tool-rectangle.png" class="geofence-button-icon-img">
 			</div>
-			<div class="geofence-button-label">Rect</div>
+			<div class="geofence-button-label">四角</div>
 		</div>
 		<div id="geofence-circle" class="geofence-button">
 			<div class="geofence-button-icon">
 				<img src="/tracker/img/tool-circle.png" class="geofence-button-icon-img">
 			</div>
-			<div class="geofence-button-label">Circle</div>
+			<div class="geofence-button-label">丸</div>
 		</div>
 	</div>
 
@@ -204,7 +204,7 @@
 		</div>
 		<div class="listview-search">
 			<div class="geofence-listview-search-input">
-				<input class="light-blue-text text-darken-4" id="geofence-search" type="text" placeholder="Search Geo Fences">
+				<input class="light-blue-text text-darken-4" id="geofence-search" type="text" placeholder="ゾーン検索">
 			</div>
 			<div class="listview-search-icon">
 				<i class="small material-icons grey-text text-lighten-5">search</i>
@@ -219,13 +219,13 @@
 			<div class="left-side-navigation-icon">
 				<i class="medium material-icons light-blue-text text-lighten-5">supervisor_account</i>
 			</div>
-			<div class="left-side-navigation-label grey-text text-lighten-5">Employees</div>
+			<div class="left-side-navigation-label grey-text text-lighten-5">ドライバー</div>
 		</div>
 		<div id="left-side-navigation-device-management" class="waves-effect waves-light">
 			<div class="left-side-navigation-icon">
 				<i class="medium material-icons light-blue-text text-lighten-5">picture_in_picture</i>
 			</div>
-			<div class="left-side-navigation-label grey-text text-lighten-5">Devices</div>
+			<div class="left-side-navigation-label grey-text text-lighten-5">デバイス</div>
 		</div>
 	</div>
 
@@ -241,38 +241,38 @@
 			<div class="right-side-navigation-icon">
 				<i class="medium material-icons light-blue-text text-lighten-5">navigation</i>
 			</div>
-			<div class="right-side-navigation-label grey-text text-lighten-5">Tracking</div>
+			<div class="right-side-navigation-label grey-text text-lighten-5">トラッキング</div>
 		</div>
 		<div id="right-side-navigation-fleet" class="right-side-navigation-button waves-effect waves-light">
 			<div class="right-side-navigation-icon">
 				<i class="medium material-icons light-blue-text text-lighten-5">view_list</i>
 			</div>
-			<div class="right-side-navigation-label grey-text text-lighten-5">Fleet</div>
+			<div class="right-side-navigation-label grey-text text-lighten-5">車両</div>
 		</div>
 		<div id="right-side-navigation-poi" class="right-side-navigation-button waves-effect waves-light">
 			<div class="right-side-navigation-icon">
 				<i class="medium material-icons light-blue-text text-lighten-5">location_on</i>
 			</div>
-			<div class="right-side-navigation-label grey-text text-lighten-5">POI</div>
+			<div class="right-side-navigation-label grey-text text-lighten-5">ポイント</div>
 		</div>
 		<div id="right-side-navigation-geofence" class="right-side-navigation-button waves-effect waves-light">
 			<div class="right-side-navigation-icon">
 				<i class="medium material-icons light-blue-text text-lighten-5">games</i>
 			</div>
-			<div class="right-side-navigation-label grey-text text-lighten-5">Geo Fence</div>
+			<div class="right-side-navigation-label grey-text text-lighten-5">ゾーン</div>
 		</div>
 		<div id="right-side-navigation-playback" class="right-side-navigation-button waves-effect waves-light">
 			<div class="right-side-navigation-icon">
 				<i class="medium material-icons light-blue-text text-lighten-5">restore</i>
 			</div>
-			<div class="right-side-navigation-label grey-text text-lighten-5">Playback</div>
+			<div class="right-side-navigation-label grey-text text-lighten-5">プレイバック</div>
 		</div>
 	</div>
 
 	<!-- Employees -->
 	<div id="employee-pnael">
 		<div id="employee-pnael-1">
-			<div class="pnael-header grey-text text-lighten-5">Employees Management</div>
+			<div class="pnael-header grey-text text-lighten-5">ドライバー管理</div>
 			<div class="pnael-action">
 				<a id="employee-create-button" class="waves-effect waves-light btn light-blue darken-2"><i class="material-icons left">playlist_add</i>Create</a>
 			</div>
@@ -281,11 +281,11 @@
 					<thead class="table-header">
 						<tr>
 							<th class=""></th>
-							<th class="text-center light-blue-text text-darken-4">Name</th>
-							<th class="text-center light-blue-text text-darken-4">Phone</th>
-							<th class="text-center light-blue-text text-darken-4">Current Score</th>
-							<th class="text-center light-blue-text text-darken-4">Work Hour</th>
-							<th class="text-center light-blue-text text-darken-4">Violent Record</th>
+							<th class="text-center light-blue-text text-darken-4">氏名</th>
+							<th class="text-center light-blue-text text-darken-4">電話</th>
+							<th class="text-center light-blue-text text-darken-4">スコア</th>
+							<th class="text-center light-blue-text text-darken-4">運転時間</th>
+							<th class="text-center light-blue-text text-darken-4">違反履歴</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -305,17 +305,17 @@
 		</div>
 		<div class="pnael-splitter"></div>
 		<div id="employee-pnael-2">
-			<div class="pnael-header grey-text text-lighten-5">Device List</div>
+			<div class="pnael-header grey-text text-lighten-5">デバイスリスト</div>
 			<div class="pnael-content">
 				<table id="device-table-1" class="striped bordered">
 					<thead class="table-header">
 						<tr>
 							<th class=""></th>
-							<th class="text-center light-blue-text text-darken-4">Unit Group</th>
-							<th class="text-center light-blue-text text-darken-4">Unit Id</th>
-							<th class="text-center light-blue-text text-darken-4">Current Driver</th>
-							<th class="text-center light-blue-text text-darken-4">Vehicle Plate</th>
-							<th class="text-center light-blue-text text-darken-4">Brand</th>
+							<th class="text-center light-blue-text text-darken-4">端末グループ</th>
+							<th class="text-center light-blue-text text-darken-4">端末ID</th>
+							<th class="text-center light-blue-text text-darken-4">ドライバー</th>
+							<th class="text-center light-blue-text text-darken-4">ナンバー</th>
+							<th class="text-center light-blue-text text-darken-4">メーカー</th>
 						</tr>
 					</thead>
 					<tbody>
