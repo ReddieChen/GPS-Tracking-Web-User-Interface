@@ -1,9 +1,9 @@
-var map;
+var map, map2;
 var mouseDown = false;
 var showEventPanel = false;
 var showFleetPanel = false;
 var showPlaybackPanel = false;
-var showEmployeePanel = true;
+var showEmployeePanel = 'employee';
 var stompClient = null;
 var devices = [];
 var markers = [];
@@ -22,8 +22,9 @@ var playbackMax = 500;
 var dragging = false;
 var palying = false;
 var playbackCurrent = 0;
-var playbackPath;
 var playbackMarker;
+var markerOnMap2;
+var playbackLineArray = [];
 
 $(document).ready(function() {
 	initObjectListPanel();
@@ -39,8 +40,26 @@ $(document).ready(function() {
 	$('.datepicker').pickadate({
 		selectMonths : true,
 		selectYears : 15,
-		format : 'dd-mm-yyyy'
+		format : 'yyyy-mm-dd',
+		closeOnSelect : true,
+		closeOnClear : true,
 	});
+	$('.datepicker-1').pickadate({
+		selectMonths : true,
+		selectYears : 15,
+		format : 'yyyy-mm-dd',
+		closeOnSelect : true,
+		closeOnClear : true,
+	});
+	// $('input[name="daterange"]').daterangepicker({
+	// locale : {
+	// format : 'YYYY-MM-DD'
+	// },
+	// startDate : '2013-01-01',
+	// endDate : '2013-12-31'
+	// }, function(start, end, label) {
+	// alert("A new date range was chosen: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+	// });
 	bindClickEvents();
 	connect();
 	setInterval(playbackInterval, 1000);
@@ -81,7 +100,7 @@ function updatePlaybackTime() {
 function updatePlaybackOnMap() {
 	var playbackData = getPlaybackData();
 	if (playbackData) {
-		console.log('updatePlaybackOnMap() lng = ' + playbackData.lng + ', lat = ' + playbackData.lat);
+		// console.log('updatePlaybackOnMap() lng = ' + playbackData.lng + ', lat = ' + playbackData.lat);
 		updatePlaybackMarker(playbackData);
 	}
 }
@@ -133,6 +152,37 @@ function initMap() {
 			drawGeofenceCirlce(lat, lng);
 			updateGeofenceListview();
 		}
+	});
+	map2 = new google.maps.Map(document.getElementById('map2'), {
+		panControl : false,
+		zoomControl : false,
+		scaleControl : false,
+		streetViewControl : false,
+		overviewMapControl : false,
+		center : {
+			lat : 33.246573,
+			lng : 131.624879
+		},
+		zoom : 15,
+		mapTypeId : google.maps.MapTypeId.ROADMAP,
+		disableDefaultUI : false,
+	});
+	var icon = {
+		path : google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
+		fillColor : getSpeedFillColor(1),
+		fillOpacity : 0.95,
+		scale : 7,
+		strokeColor : getSpeedStrokeColor(1),
+		strokeWeight : 3,
+		rotation : 45
+	};
+	markerOnMap2 = new google.maps.Marker({
+		position : {
+			lat : 33.246573,
+			lng : 131.624879
+		},
+		map : map2,
+		icon : icon
 	});
 }
 
@@ -349,7 +399,8 @@ function bindClickEvents() {
 	$('#left-side-navigation-employee').click(function() {
 		$('#left-side-navigation-employee').addClass('light-blue darken-2');
 		$('#left-side-navigation-device-management').removeClass('light-blue darken-2');
-		showEmployeePanel = true;
+		$('#left-side-navigation-violation').removeClass('light-blue darken-2');
+		showEmployeePanel = 'employee';
 		showEmployeeOrDevicePanel(showEmployeePanel);
 
 	});
@@ -357,8 +408,34 @@ function bindClickEvents() {
 	$('#left-side-navigation-device-management').click(function() {
 		$('#left-side-navigation-employee').removeClass('light-blue darken-2');
 		$('#left-side-navigation-device-management').addClass('light-blue darken-2');
-		showEmployeePanel = false;
+		$('#left-side-navigation-violation').removeClass('light-blue darken-2');
+		showEmployeePanel = 'device';
 		showEmployeeOrDevicePanel(showEmployeePanel);
+	});
+
+	$('#left-side-navigation-violation').click(function() {
+		$('#left-side-navigation-employee').removeClass('light-blue darken-2');
+		$('#left-side-navigation-device-management').removeClass('light-blue darken-2');
+		$('#left-side-navigation-violation').addClass('light-blue darken-2');
+		showEmployeePanel = 'violation';
+		showEmployeeOrDevicePanel(showEmployeePanel);
+		google.maps.event.trigger(map2, 'resize');
+		$('.violation-item').each(function() {
+			$(this).removeClass('violation-selected');
+			$(this).addClass('violation-normal');
+		});
+		$($('.violation-item')[0]).addClass('violation-selected');
+		$('.violation-detail-item').each(function() {
+			$(this).removeClass('violation-selected');
+			$(this).addClass('violation-normal');
+		});
+		$($('.violation-detail-item')[0]).addClass('violation-selected');
+		$('#violation-detail-table-1').show();
+		$('#violation-detail-table-2').hide();
+		$('#violation-detail-table-3').hide();
+		$('#violation-detail-table-4').hide();
+		$('#violation-detail-table-5').hide();
+		panToMarkerOnMap2(33.212227, 131.631527);
 	});
 
 	$('#right-side-events').click(function() {
@@ -457,24 +534,54 @@ function bindClickEvents() {
 }
 
 function drawPlaybackPathOnMap() {
-	if (!playbackPath) {
-		playbackPath = new google.maps.Polyline({
-			path : playbackDataArray,
+	for (var i = 0; i < playbackDataArray.length - 1; i++) {
+		var lineArray = [];
+		lineArray.push({
+			lat : playbackDataArray[i].lat,
+			lng : playbackDataArray[i].lng
+		});
+		lineArray.push({
+			lat : playbackDataArray[i + 1].lat,
+			lng : playbackDataArray[i + 1].lng
+		});
+		var playbackPath = new google.maps.Polyline({
+			path : lineArray,
 			geodesic : true,
-			strokeColor : '#0277bd',
-			strokeOpacity : 0.7,
+			strokeColor : getSpeedFillColor(playbackDataArray[i].extraSpeedLevel),
+			strokeOpacity : 0.9,
 			strokeWeight : 6
 		});
 		playbackPath.setMap(map);
+		playbackLineArray.push(playbackPath);
 	}
 }
 
+// function drawPlaybackPathOnMap() {
+// if (!playbackPath) {
+// playbackPath = new google.maps.Polyline({
+// path : playbackDataArray,
+// geodesic : true,
+// strokeColor : '#0277bd',
+// strokeOpacity : 0.7,
+// strokeWeight : 6
+// });
+// playbackPath.setMap(map);
+// }
+// }
+
 function clearPlaybackPathOnMap() {
-	if (playbackPath) {
-		playbackPath.setMap(null);
+	for (var i = 0; i < playbackLineArray.length; i++) {
+		playbackLineArray[i].setMap(null);
 	}
-	playbackPath = null;
+	playbackLineArray = [];
 }
+
+//function clearPlaybackPathOnMap() {
+//	if (playbackPath) {
+//		playbackPath.setMap(null);
+//	}
+//	playbackPath = null;
+//}
 
 function createDriver(id, name, phone, unitId) {
 	$('#employee-table tbody').append(makeUnitIdTable1(id, name, phone, unitId));
@@ -483,17 +590,24 @@ function createDriver(id, name, phone, unitId) {
 }
 
 function hideEmployeeAndDevicePanels() {
-	$('#device-pnael').hide();
-	$('#employee-pnael').hide();
+	$('#employee-panel').hide();
+	$('#device-panel').hide();
+	$('#violation-panel').hide();
 }
 
 function showEmployeeOrDevicePanel(flag) {
-	if (flag) {
-		$('#employee-pnael').show();
-		$('#device-pnael').hide();
-	} else {
-		$('#device-pnael').show();
-		$('#employee-pnael').hide();
+	if (flag == 'employee') {
+		$('#employee-panel').show();
+		$('#device-panel').hide();
+		$('#violation-panel').hide();
+	} else if (flag == 'device') {
+		$('#device-panel').show();
+		$('#employee-panel').hide();
+		$('#violation-panel').hide();
+	} else if (flag == 'violation') {
+		$('#employee-panel').hide();
+		$('#device-panel').hide();
+		$('#violation-panel').show();
 	}
 }
 
@@ -518,6 +632,20 @@ function panToMarker(lat, lng) {
 	bounceMarker(lat, lng);
 }
 
+function panToMarkerOnMap2(lat, lng) {
+	map2.panTo(new google.maps.LatLng(lat, lng));
+	map2.setZoom(17);
+	markerOnMap2.setPosition(new google.maps.LatLng(lat, lng));
+	markerOnMap2.setOptions({
+		animation : google.maps.Animation.BOUNCE
+	});
+	setTimeout(function() {
+		markerOnMap2.setOptions({
+			animation : null
+		});
+	}, 950)
+}
+
 function clearPoi() {
 	$('.collection-item-selected').each(function() {
 		$(this).removeClass('collection-item-selected');
@@ -533,6 +661,68 @@ function unitOnClick(ele, unitId) {
 	});
 	ele.addClass('collection-item-selected');
 	panToMarkerByUnitId(unitId);
+}
+
+function violationOnClick(ele, driverId) {
+	$('.violation-item').each(function() {
+		$(this).removeClass('violation-selected');
+		$(this).addClass('violation-normal');
+	});
+	ele.addClass('violation-selected');
+	$('.violation-detail-item').each(function() {
+		$(this).removeClass('violation-selected');
+		$(this).addClass('violation-normal');
+	});
+	if (driverId == '001') {
+		$('#violation-detail-table-1').show();
+		$('#violation-detail-table-2').hide();
+		$('#violation-detail-table-3').hide();
+		$('#violation-detail-table-4').hide();
+		$('#violation-detail-table-5').hide();
+		$($('#violation-detail-table-1 .violation-detail-item')[0]).addClass('violation-selected');
+		panToMarkerOnMap2(33.212227, 131.631527);
+	} else if (driverId == '002') {
+		$('#violation-detail-table-1').hide();
+		$('#violation-detail-table-2').show();
+		$('#violation-detail-table-3').hide();
+		$('#violation-detail-table-4').hide();
+		$('#violation-detail-table-5').hide();
+		$($('#violation-detail-table-2 .violation-detail-item')[0]).addClass('violation-selected');
+		panToMarkerOnMap2(33.213227, 131.635527);
+	} else if (driverId == '003') {
+		$('#violation-detail-table-1').hide();
+		$('#violation-detail-table-2').hide();
+		$('#violation-detail-table-3').show();
+		$('#violation-detail-table-4').hide();
+		$('#violation-detail-table-5').hide();
+		$($('#violation-detail-table-3 .violation-detail-item')[0]).addClass('violation-selected');
+		panToMarkerOnMap2(33.212227, 131.632527);
+	} else if (driverId == '004') {
+		$('#violation-detail-table-1').hide();
+		$('#violation-detail-table-2').hide();
+		$('#violation-detail-table-3').hide();
+		$('#violation-detail-table-4').show();
+		$('#violation-detail-table-5').hide();
+		$($('#violation-detail-table-4 .violation-detail-item')[0]).addClass('violation-selected');
+		panToMarkerOnMap2(33.212227, 131.631527);
+	} else if (driverId == '005') {
+		$('#violation-detail-table-1').hide();
+		$('#violation-detail-table-2').hide();
+		$('#violation-detail-table-3').hide();
+		$('#violation-detail-table-4').hide();
+		$('#violation-detail-table-5').show();
+		$($('#violation-detail-table-5 .violation-detail-item')[0]).addClass('violation-selected');
+		panToMarkerOnMap2(33.211227, 131.632527);
+	}
+}
+
+function violationDetailOnClick(ele, lng, lat) {
+	$('.violation-detail-item').each(function() {
+		$(this).removeClass('violation-selected');
+		$(this).addClass('violation-normal');
+	});
+	ele.addClass('violation-selected');
+	panToMarkerOnMap2(lat, lng);
 }
 
 function poiOnClick(ele, lat, lng, range) {

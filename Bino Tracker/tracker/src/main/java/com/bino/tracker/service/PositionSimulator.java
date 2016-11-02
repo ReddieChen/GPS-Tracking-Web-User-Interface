@@ -7,11 +7,13 @@ import java.util.Random;
 
 import org.springframework.stereotype.Service;
 
+import com.bino.tracker.util.DateUtil;
 import com.bino.tracker.vo.Driver;
 import com.bino.tracker.vo.Poi;
 import com.bino.tracker.vo.Position;
 import com.bino.tracker.vo.PositionEvent;
 import com.bino.tracker.vo.Unit;
+import com.bino.tracker.vo.ViolationDetail;
 
 @Service
 public class PositionSimulator {
@@ -23,6 +25,11 @@ public class PositionSimulator {
 	private List<Unit> units = new ArrayList<Unit>();
 	private List<Poi> pois = new ArrayList<Poi>();
 	private List<Frame> car1Frames = new ArrayList<Frame>();
+	private List<ViolationDetail> violationDetails1 = new ArrayList<ViolationDetail>();
+	private List<ViolationDetail> violationDetails2 = new ArrayList<ViolationDetail>();
+	private List<ViolationDetail> violationDetails3 = new ArrayList<ViolationDetail>();
+	private List<ViolationDetail> violationDetails4 = new ArrayList<ViolationDetail>();
+	private List<ViolationDetail> violationDetails5 = new ArrayList<ViolationDetail>();
 	private long index = 1;
 	private int eventIndex = 0;
 	private int frame1Index = 0;
@@ -49,6 +56,26 @@ public class PositionSimulator {
 
 	public List<Poi> getPois() {
 		return pois;
+	}
+
+	public List<ViolationDetail> getViolationDetails1() {
+		return violationDetails1;
+	}
+
+	public List<ViolationDetail> getViolationDetails2() {
+		return violationDetails2;
+	}
+
+	public List<ViolationDetail> getViolationDetails3() {
+		return violationDetails3;
+	}
+
+	public List<ViolationDetail> getViolationDetails4() {
+		return violationDetails4;
+	}
+
+	public List<ViolationDetail> getViolationDetails5() {
+		return violationDetails5;
 	}
 
 	public void startThread() {
@@ -84,6 +111,173 @@ public class PositionSimulator {
 		initUnits();
 		initPositions();
 		initPois();
+		initViolationDetails1();
+		initViolationDetails2();
+		initViolationDetails3();
+		initViolationDetails4();
+		initViolationDetails5();
+	}
+
+	private void initViolationDetails1() {
+		ViolationDetail v = new ViolationDetail();
+		v.setDate("2016-11-12 12:77 AM");
+		v.setEvent("スピードオーバー");
+		v.setLatitude(33.212227);
+		v.setLongitude(131.631527);
+		v.setLocation("大分縣大分市");
+		violationDetails1.add(v);
+
+		v = new ViolationDetail();
+		v.setDate("2016-11-21 12:55 PM");
+		v.setEvent("急加速");
+		v.setLatitude(33.213227);
+		v.setLongitude(131.231527);
+		v.setLocation("大分縣大分市");
+		violationDetails1.add(v);
+
+		v = new ViolationDetail();
+		v.setDate("2016-11-02 14:27 AM");
+		v.setEvent("スピードオーバー");
+		v.setLatitude(33.211227);
+		v.setLongitude(131.431527);
+		v.setLocation("大分縣大分市");
+		violationDetails1.add(v);
+
+		v = new ViolationDetail();
+		v.setDate("2016-11-01 13:47 AM");
+		v.setEvent("急加速");
+		v.setLatitude(33.612227);
+		v.setLongitude(131.831527);
+		v.setLocation("大分縣大分市");
+		violationDetails1.add(v);
+	}
+	
+	private void initViolationDetails2() {
+		ViolationDetail v = new ViolationDetail();
+		v.setDate("2016-11-12 12:77 AM");
+		v.setEvent("スピードオーバー");
+		v.setLatitude(33.213227);
+		v.setLongitude(131.635527);
+		v.setLocation("大分縣大分市2");
+		violationDetails2.add(v);
+
+		v = new ViolationDetail();
+		v.setDate("2016-11-21 12:55 PM");
+		v.setEvent("急加速");
+		v.setLatitude(33.213227);
+		v.setLongitude(131.231527);
+		v.setLocation("大分縣大分市2");
+		violationDetails2.add(v);
+
+		v = new ViolationDetail();
+		v.setDate("2016-11-02 14:27 AM");
+		v.setEvent("スピードオーバー");
+		v.setLatitude(33.213227);
+		v.setLongitude(131.431527);
+		v.setLocation("大分縣大分市2");
+		violationDetails2.add(v);
+
+		v = new ViolationDetail();
+		v.setDate("2016-11-01 13:47 AM");
+		v.setEvent("急加速");
+		v.setLatitude(33.612227);
+		v.setLongitude(131.831527);
+		v.setLocation("大分縣大分市2");
+		violationDetails2.add(v);
+		
+		v = new ViolationDetail();
+		v.setDate("2016-11-21 12:55 PM");
+		v.setEvent("急加速");
+		v.setLatitude(33.213227);
+		v.setLongitude(131.231527);
+		v.setLocation("大分縣大分市2");
+		violationDetails2.add(v);
+
+		v = new ViolationDetail();
+		v.setDate("2016-11-02 14:27 AM");
+		v.setEvent("スピードオーバー");
+		v.setLatitude(33.213227);
+		v.setLongitude(131.431527);
+		v.setLocation("大分縣大分市2");
+		violationDetails2.add(v);
+
+		v = new ViolationDetail();
+		v.setDate("2016-11-01 13:47 AM");
+		v.setEvent("急加速");
+		v.setLatitude(33.612227);
+		v.setLongitude(131.831527);
+		v.setLocation("大分縣大分市2");
+		violationDetails2.add(v);
+	}
+	
+	private void initViolationDetails3() {
+		ViolationDetail v = new ViolationDetail();
+		v.setDate("2016-11-12 12:77 AM");
+		v.setEvent("スピードオーバー");
+		v.setLatitude(33.212227);
+		v.setLongitude(131.632527);
+		v.setLocation("大分縣大分市3");
+		violationDetails3.add(v);
+
+		v = new ViolationDetail();
+		v.setDate("2016-11-21 12:55 PM");
+		v.setEvent("急加速");
+		v.setLatitude(33.213227);
+		v.setLongitude(131.231527);
+		v.setLocation("大分縣大分市3");
+		violationDetails3.add(v);
+	}
+	
+	private void initViolationDetails4() {
+		ViolationDetail v = new ViolationDetail();
+		v.setDate("2016-11-12 12:77 AM");
+		v.setEvent("スピードオーバー");
+		v.setLatitude(33.212227);
+		v.setLongitude(131.631527);
+		v.setLocation("大分縣大分市4");
+		violationDetails4.add(v);
+
+		v = new ViolationDetail();
+		v.setDate("2016-11-21 12:55 PM");
+		v.setEvent("急加速");
+		v.setLatitude(33.213227);
+		v.setLongitude(131.231527);
+		v.setLocation("大分縣大分市4");
+		violationDetails4.add(v);
+
+		v = new ViolationDetail();
+		v.setDate("2016-11-02 14:27 AM");
+		v.setEvent("スピードオーバー");
+		v.setLatitude(33.211227);
+		v.setLongitude(131.431527);
+		v.setLocation("大分縣大分市4");
+		violationDetails4.add(v);
+
+		v = new ViolationDetail();
+		v.setDate("2016-11-01 13:47 AM");
+		v.setEvent("急加速");
+		v.setLatitude(33.612227);
+		v.setLongitude(131.831527);
+		v.setLocation("大分縣大分市4");
+		violationDetails4.add(v);
+	}
+	
+	private void initViolationDetails5() {
+		ViolationDetail v = new ViolationDetail();
+		v.setDate("2016-11-12 12:77 AM");
+		v.setEvent("スピードオーバー");
+		v.setLatitude(33.211227);
+		v.setLongitude(131.632527);
+		v.setLocation("大分縣大分市5");
+		violationDetails5.add(v);
+
+		v = new ViolationDetail();
+		v.setDate("2016-11-21 12:55 PM");
+		v.setEvent("急加速");
+		v.setLatitude(33.213227);
+		v.setLongitude(131.231527);
+		v.setLocation("大分縣大分市5");
+		violationDetails5.add(v);
 	}
 
 	private void initPositions() {
@@ -193,52 +387,77 @@ public class PositionSimulator {
 	private void initDrivers() {
 		Driver d = new Driver();
 		d.setId("001");
-		d.setName("Walter Hsu");
+		d.setName("石田 真一");
 		d.setPhone("+886918323232");
 		d.setCurrentScore(87);
-		d.setWorkHour(7);
+		d.setWorkHour(207);
 		d.setPhoto("driver1.png");
-		d.setViolentRecord("Speeding");
+		d.setViolentRecord("A+");
+		d.setViolentSpeeding(2);
+		d.setViolentHarshAcceleration(3);
+		d.setViolentHarshBraking(4);
+		d.setViolentHarshCornering(5);
+		d.setViolentTotal(14);
 		drivers.add(d);
 
 		d = new Driver();
 		d.setId("002");
-		d.setName("David Lin");
+		d.setName("坂本 重雄");
 		d.setPhone("+886918775255");
 		d.setCurrentScore(12);
-		d.setWorkHour(23);
+		d.setWorkHour(223);
 		d.setPhoto("driver2.png");
-		d.setViolentRecord("Speeding");
+		d.setViolentRecord("A");
+		d.setViolentSpeeding(2);
+		d.setViolentHarshAcceleration(3);
+		d.setViolentHarshBraking(4);
+		d.setViolentHarshCornering(5);
+		d.setViolentTotal(14);
 		drivers.add(d);
 
 		d = new Driver();
 		d.setId("003");
-		d.setName("Albert Chen");
+		d.setName("齋藤 徳重");
 		d.setPhone("+8863819302939");
 		d.setCurrentScore(87);
-		d.setWorkHour(11);
+		d.setWorkHour(211);
 		d.setPhoto("driver3.png");
-		d.setViolentRecord("Speeding");
+		d.setViolentRecord("S");
+		d.setViolentSpeeding(2);
+		d.setViolentHarshAcceleration(3);
+		d.setViolentHarshBraking(4);
+		d.setViolentHarshCornering(5);
+		d.setViolentTotal(14);
 		drivers.add(d);
 
 		d = new Driver();
 		d.setId("004");
-		d.setName("Batman");
+		d.setName("佐藤 正治");
 		d.setPhone("+8860192929333");
 		d.setCurrentScore(127);
-		d.setWorkHour(12);
+		d.setWorkHour(212);
 		d.setPhoto("driver4.png");
-		d.setViolentRecord("Speeding");
+		d.setViolentRecord("C");
+		d.setViolentSpeeding(2);
+		d.setViolentHarshAcceleration(3);
+		d.setViolentHarshBraking(4);
+		d.setViolentHarshCornering(5);
+		d.setViolentTotal(14);
 		drivers.add(d);
 
 		d = new Driver();
 		d.setId("005");
-		d.setName("Death Shot");
+		d.setName("古澤 昌之");
 		d.setPhone("+8860912322338");
 		d.setCurrentScore(23);
-		d.setWorkHour(27);
+		d.setWorkHour(227);
 		d.setPhoto("driver5.png");
-		d.setViolentRecord("Speeding");
+		d.setViolentRecord("B+");
+		d.setViolentSpeeding(2);
+		d.setViolentHarshAcceleration(3);
+		d.setViolentHarshBraking(4);
+		d.setViolentHarshCornering(5);
+		d.setViolentTotal(14);
 		drivers.add(d);
 	}
 
@@ -246,11 +465,11 @@ public class PositionSimulator {
 		Unit u = new Unit();
 		u.setPhoto("device1.png");
 		u.setBrand("Toyota");
-		u.setCurrentDriver("Walter Hsu");
+		u.setCurrentDriver("石田 真一");
 		u.setImei("352964051849371");
 		u.setModel("Altis");
 		u.setUnitGroupId("A-Team");
-		u.setUnitId("Vehicle 01");
+		u.setUnitId("車両01");
 		u.setVehiclePlate("DA-763A");
 		u.setVehicleType("Sedan");
 		u.setYear(2005);
@@ -259,11 +478,11 @@ public class PositionSimulator {
 		u = new Unit();
 		u.setPhoto("device2.png");
 		u.setBrand("Toyota");
-		u.setCurrentDriver("David Lin");
+		u.setCurrentDriver("古澤 昌之");
 		u.setImei("352964051849372");
 		u.setModel("Altis");
 		u.setUnitGroupId("A-Team");
-		u.setUnitId("Vehicle 02");
+		u.setUnitId("車両02");
 		u.setVehiclePlate("AS-1QAZ");
 		u.setVehicleType("Sedan");
 		u.setYear(2006);
@@ -272,11 +491,11 @@ public class PositionSimulator {
 		u = new Unit();
 		u.setPhoto("device3.png");
 		u.setBrand("Toyota");
-		u.setCurrentDriver("Albert Chen");
+		u.setCurrentDriver("齋藤 徳重");
 		u.setImei("352964051849373");
 		u.setModel("Altis");
 		u.setUnitGroupId("A-Team");
-		u.setUnitId("Vehicle 03");
+		u.setUnitId("車両03");
 		u.setVehiclePlate("BB-CD11");
 		u.setVehicleType("Truck");
 		u.setYear(2009);
@@ -285,11 +504,11 @@ public class PositionSimulator {
 		u = new Unit();
 		u.setPhoto("device1.png");
 		u.setBrand("Toyota");
-		u.setCurrentDriver("Batman");
+		u.setCurrentDriver("坂本 重雄");
 		u.setImei("352964051849374");
 		u.setModel("Altis");
 		u.setUnitGroupId("A-Team");
-		u.setUnitId("Vehicle 04");
+		u.setUnitId("車両04");
 		u.setVehiclePlate("AA-1234");
 		u.setVehicleType("Truck");
 		u.setYear(2010);
@@ -298,11 +517,11 @@ public class PositionSimulator {
 		u = new Unit();
 		u.setPhoto("device2.png");
 		u.setBrand("Toyota");
-		u.setCurrentDriver("Death Shot");
+		u.setCurrentDriver("佐藤 正治");
 		u.setImei("352964051849375");
 		u.setModel("Altis");
 		u.setUnitGroupId("A-Team");
-		u.setUnitId("Vehicle 05");
+		u.setUnitId("車両05");
 		u.setVehiclePlate("D5-4321");
 		u.setVehicleType("Sedan");
 		u.setYear(2005);
@@ -315,7 +534,7 @@ public class PositionSimulator {
 		u.setImei("352964051849376");
 		u.setModel("Altis");
 		u.setUnitGroupId("A-Team");
-		u.setUnitId("Vehicle 06");
+		u.setUnitId("車両06");
 		u.setVehiclePlate("FD-12DA");
 		u.setVehicleType("Sedan");
 		u.setYear(2005);
@@ -362,20 +581,20 @@ public class PositionSimulator {
 		// }
 		if (frame1Index == 17) {
 			// addPositionEvent(p.getUnitId(), p.getUnitId() + " enters Binodata Office.");
-			String poiName = "Binodata Office";
-			addPositionEvent(p.getUnitId(), poiName + " に " + p.getUnitId() + "が入りました");
+			String poiName = "台灣雲創軟體";
+			addPositionEvent(p.getUnitId(), poiName + " ポイントに " + p.getUnitId() + "が接近しています");
 		} else if (frame1Index == 23) {
 			// addPositionEvent(p.getUnitId(), p.getUnitId() + " leaves Binodata Office.");
-			String poiName = "Binodata Office";
-			addPositionEvent(p.getUnitId(), poiName + " から " + p.getUnitId() + "が出ました");
+			String poiName = "台灣雲創軟體";
+			addPositionEvent(p.getUnitId(), poiName + " ポイントから " + p.getUnitId() + "が離れました");
 		} else if (frame1Index == 38) {
 			// addPositionEvent(p.getUnitId(), p.getUnitId() + " enters Zhongshan elementary school station.");
-			String poiName = "Zhongshan elementary school station";
-			addPositionEvent(p.getUnitId(), poiName + " に " + p.getUnitId() + "が入りました");
+			String poiName = "中山國小站";
+			addPositionEvent(p.getUnitId(), poiName + " ポイントに " + p.getUnitId() + "が接近しています");
 		} else if (frame1Index == 40) {
 			// addPositionEvent(p.getUnitId(), p.getUnitId() + " leaves Zhongshan elementary school station.");
-			String poiName = "Zhongshan elementary school station";
-			addPositionEvent(p.getUnitId(), poiName + " から " + p.getUnitId() + "が出ました");
+			String poiName = "中山國小站";
+			addPositionEvent(p.getUnitId(), poiName + " ポイントから " + p.getUnitId() + "が離れました");
 		}
 	}
 

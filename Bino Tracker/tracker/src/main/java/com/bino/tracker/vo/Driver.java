@@ -8,6 +8,11 @@ public class Driver {
 	private Integer currentScore;
 	private Integer workHour;
 	private String violentRecord;
+	private Integer violentSpeeding;
+	private Integer violentHarshAcceleration;
+	private Integer violentHarshCornering;
+	private Integer violentHarshBraking;
+	private Integer violentTotal;
 
 	public String getId() {
 		return id;
@@ -63,5 +68,45 @@ public class Driver {
 
 	public void setPhoto(String photo) {
 		this.photo = photo;
+	}
+
+	public Integer getViolentSpeeding() {
+		return violentSpeeding;
+	}
+
+	public void setViolentSpeeding(Integer violentSpeeding) {
+		this.violentSpeeding = violentSpeeding;
+	}
+
+	public Integer getViolentHarshAcceleration() {
+		return violentHarshAcceleration;
+	}
+
+	public void setViolentHarshAcceleration(Integer violentHarshAcceleration) {
+		this.violentHarshAcceleration = violentHarshAcceleration;
+	}
+
+	public Integer getViolentHarshCornering() {
+		return violentHarshCornering;
+	}
+
+	public void setViolentHarshCornering(Integer violentHarshCornering) {
+		this.violentHarshCornering = violentHarshCornering;
+	}
+
+	public Integer getViolentHarshBraking() {
+		return violentHarshBraking;
+	}
+
+	public void setViolentHarshBraking(Integer violentHarshBraking) {
+		this.violentHarshBraking = violentHarshBraking;
+	}
+
+	public Integer getViolentTotal() {
+		return violentTotal;
+	}
+
+	public void setViolentTotal(Integer violentTotal) {
+		this.violentTotal = violentTotal;
 	}
 }

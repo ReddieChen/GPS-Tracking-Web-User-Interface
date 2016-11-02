@@ -8,30 +8,31 @@
 <meta charset="utf-8">
 <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css" rel="stylesheet">
+<!-- <link href="//cdn.jsdelivr.net/bootstrap/3/css/bootstrap.css" type="text/css" rel="stylesheet" /> -->
+<!-- <link href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" type="text/css" rel="stylesheet" /> -->
 <title>Binodata Tracker</title>
 <link href="<c:url value="/css/home.css" />" rel="stylesheet" type="text/css">
 </head>
 <body>
 	<div id="map"></div>
-
 	<!-- Unit List -->
 	<div id="object-listview-panel" class="listview-panel white z-depth-3 moveable">
 		<div class="listview-header listview-header light-blue darken-4">
 			<div class="listview-header-icon">
 				<i class="small material-icons light-blue-text text-lighten-5">navigation</i>
 			</div>
-			<span class="listview-header-title grey-text text-lighten-5">端末追跡</span>
+			<span class="listview-header-title grey-text text-lighten-5">位置情報</span>
 		</div>
 		<div class="listview-search">
 			<div class="listview-search-input">
-				<input class="light-blue-text text-darken-4" id="search" type="text" placeholder="端末検索">
+				<input class="light-blue-text text-darken-4" id="search" type="text" placeholder="車両検索">
 			</div>
 			<div class="listview-search-icon">
 				<i class="small material-icons grey-text text-lighten-5">search</i>
 			</div>
 		</div>
 		<div class="listview-column-header">
-			<div class="object-listview-column">端末ID</div>
+			<div class="object-listview-column">車両</div>
 			<div class="listview-icon-column">
 				<i class="small-icon material-icons tooltipped" data-position="bottom" data-delay="50" data-tooltip="GSM">settings_input_antenna</i>
 			</div>
@@ -39,7 +40,7 @@
 				<i class="small-icon material-icons tooltipped" data-position="bottom" data-delay="50" data-tooltip="GPS">language</i>
 			</div>
 			<div class="listview-icon-column">
-				<i class="small-icon material-icons tooltipped" data-position="bottom" data-delay="50" data-tooltip="エンジン情報">power_settings_new</i>
+				<i class="small-icon material-icons tooltipped" data-position="bottom" data-delay="50" data-tooltip="エンジン">power_settings_new</i>
 			</div>
 		</div>
 		<div>
@@ -96,18 +97,18 @@
 			<div class="listview-header-icon">
 				<i class="small material-icons light-blue-text text-lighten-5">restore</i>
 			</div>
-			<span class="listview-header-title grey-text text-lighten-5">Playback Units</span>
+			<span class="listview-header-title grey-text text-lighten-5">走行履歴</span>
 		</div>
 		<div class="listview-search">
 			<div class="listview-search-input">
-				<input class="light-blue-text text-darken-4" id="search" type="text" placeholder="Search Units">
+				<input class="light-blue-text text-darken-4" id="search" type="text" placeholder="車両検索">
 			</div>
 			<div class="listview-search-icon">
 				<i class="small material-icons grey-text text-lighten-5">search</i>
 			</div>
 		</div>
 		<div class="listview-column-header">
-			<div class="object-listview-column">Unit Id</div>
+			<div class="object-listview-column">車両</div>
 			<div class="listview-icon-column">
 				<i class="small-icon material-icons tooltipped" data-position="bottom" data-delay="50" data-tooltip="GSM">settings_input_antenna</i>
 			</div>
@@ -115,11 +116,11 @@
 				<i class="small-icon material-icons tooltipped" data-position="bottom" data-delay="50" data-tooltip="GPS">language</i>
 			</div>
 			<div class="listview-icon-column">
-				<i class="small-icon material-icons tooltipped" data-position="bottom" data-delay="50" data-tooltip="Engine Event">power_settings_new</i>
+				<i class="small-icon material-icons tooltipped" data-position="bottom" data-delay="50" data-tooltip="エンジン">power_settings_new</i>
 			</div>
 		</div>
 		<div class="playback-object-listview-collection-item waves-effect waves-blue">
-			<div class="object-listview-column">Vehicle 01</div>
+			<div class="object-listview-column">車両01</div>
 			<div class="listview-icon-column">
 				<div class="green-circle"></div>
 			</div>
@@ -142,16 +143,16 @@
 		</div>
 		<div class="listview-search">
 			<div class="listview-search-input">
-				<input class="light-blue-text text-darken-4" id="search" type="text" placeholder="Search POI">
+				<input class="light-blue-text text-darken-4" id="search" type="text" placeholder="ポイント検索">
 			</div>
 			<div class="listview-search-icon">
 				<i class="small material-icons grey-text text-lighten-5">search</i>
 			</div>
 		</div>
 		<div class="listview-column-header">
-			<div class="poi-listview-column">Name</div>
+			<div class="poi-listview-column">ポイント</div>
 			<div class="listview-icon-column ">
-				<i class="small-icon material-icons tooltipped" data-position="bottom" data-delay="50" data-tooltip="Range">track_changes</i>
+				<i class="small-icon material-icons tooltipped" data-position="bottom" data-delay="50" data-tooltip="レンジ">track_changes</i>
 			</div>
 		</div>
 		<div>
@@ -178,7 +179,7 @@
 			<div class="geofence-button-icon">
 				<img src="/tracker/img/tool-normal.png" class="geofence-button-icon-img">
 			</div>
-			<div class="geofence-button-label">通常</div>
+			<div class="geofence-button-label">ポイント</div>
 		</div>
 		<div id="geofence-rectangle" class="geofence-button">
 			<div class="geofence-button-icon">
@@ -200,7 +201,7 @@
 			<div class="listview-header-icon">
 				<i class="small material-icons light-blue-text text-lighten-5">games</i>
 			</div>
-			<span class="listview-header-title grey-text text-lighten-5">Geo Fences</span>
+			<span class="listview-header-title grey-text text-lighten-5">ゾーン</span>
 		</div>
 		<div class="listview-search">
 			<div class="geofence-listview-search-input">
@@ -215,18 +216,27 @@
 
 	<!-- Left Side Navigation -->
 	<div id="left-side-navigation" class="light-blue darken-4 z-depth-3">
-		<div id="left-side-navigation-employee" class="light-blue darken-2 waves-effect waves-light">
+		<div id="left-side-navigation-employee" class="light-blue darken-2 waves-effect waves-light left-side-navigation-button">
 			<div class="left-side-navigation-icon">
 				<i class="medium material-icons light-blue-text text-lighten-5">supervisor_account</i>
 			</div>
 			<div class="left-side-navigation-label grey-text text-lighten-5">ドライバー</div>
 		</div>
-		<div id="left-side-navigation-device-management" class="waves-effect waves-light">
+
+		<div id="left-side-navigation-device-management" class="waves-effect waves-light left-side-navigation-button">
 			<div class="left-side-navigation-icon">
 				<i class="medium material-icons light-blue-text text-lighten-5">picture_in_picture</i>
 			</div>
-			<div class="left-side-navigation-label grey-text text-lighten-5">デバイス</div>
+			<div class="left-side-navigation-label grey-text text-lighten-5">端末</div>
 		</div>
+
+		<div id="left-side-navigation-violation" class="waves-effect waves-light left-side-navigation-button">
+			<div class="left-side-navigation-icon">
+				<i class="medium material-icons light-blue-text text-lighten-5">announcement</i>
+			</div>
+			<div class="left-side-navigation-label grey-text text-lighten-5">違反履歴</div>
+		</div>
+
 	</div>
 
 	<!-- Right Side Navigation  -->
@@ -241,13 +251,13 @@
 			<div class="right-side-navigation-icon">
 				<i class="medium material-icons light-blue-text text-lighten-5">navigation</i>
 			</div>
-			<div class="right-side-navigation-label grey-text text-lighten-5">トラッキング</div>
+			<div class="right-side-navigation-label grey-text text-lighten-5">位置情報</div>
 		</div>
 		<div id="right-side-navigation-fleet" class="right-side-navigation-button waves-effect waves-light">
 			<div class="right-side-navigation-icon">
 				<i class="medium material-icons light-blue-text text-lighten-5">view_list</i>
 			</div>
-			<div class="right-side-navigation-label grey-text text-lighten-5">車両</div>
+			<div class="right-side-navigation-label grey-text text-lighten-5">車両管理</div>
 		</div>
 		<div id="right-side-navigation-poi" class="right-side-navigation-button waves-effect waves-light">
 			<div class="right-side-navigation-icon">
@@ -265,27 +275,27 @@
 			<div class="right-side-navigation-icon">
 				<i class="medium material-icons light-blue-text text-lighten-5">restore</i>
 			</div>
-			<div class="right-side-navigation-label grey-text text-lighten-5">プレイバック</div>
+			<div class="right-side-navigation-label grey-text text-lighten-5">走行履歴</div>
 		</div>
 	</div>
 
 	<!-- Employees -->
-	<div id="employee-pnael">
-		<div id="employee-pnael-1">
-			<div class="pnael-header grey-text text-lighten-5">ドライバー管理</div>
-			<div class="pnael-action">
-				<a id="employee-create-button" class="waves-effect waves-light btn light-blue darken-2"><i class="material-icons left">playlist_add</i>Create</a>
+	<div id="employee-panel">
+		<div id="employee-panel-1">
+			<div class="panel-header grey-text text-lighten-5">ドライバー管理</div>
+			<div class="panel-action">
+				<a id="employee-create-button" class="waves-effect waves-light btn light-blue darken-2"><i class="material-icons left">playlist_add</i>新規登録</a>
 			</div>
-			<div class="pnael-content">
+			<div class="panel-content">
 				<table id="employee-table" class="striped bordered">
 					<thead class="table-header">
 						<tr>
 							<th class=""></th>
 							<th class="text-center light-blue-text text-darken-4">氏名</th>
-							<th class="text-center light-blue-text text-darken-4">電話</th>
+							<th class="text-center light-blue-text text-darken-4">連絡先</th>
 							<th class="text-center light-blue-text text-darken-4">スコア</th>
+							<th class="text-center light-blue-text text-darken-4">Rate</th>
 							<th class="text-center light-blue-text text-darken-4">運転時間</th>
-							<th class="text-center light-blue-text text-darken-4">違反履歴</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -295,27 +305,27 @@
 								<td class="light-blue-text text-darken-3">${driver.name}</td>
 								<td class="light-blue-text text-darken-3 text-center">${driver.phone}</td>
 								<td class="light-blue-text text-darken-3 text-center">${driver.currentScore}</td>
-								<td class="light-blue-text text-darken-3 text-center">${driver.workHour}</td>
 								<td class="light-blue-text text-darken-3 text-center">${driver.violentRecord}</td>
+								<td class="light-blue-text text-darken-3 text-center">${driver.workHour}</td>
 							</tr>
 						</c:forEach>
 					</tbody>
 				</table>
 			</div>
 		</div>
-		<div class="pnael-splitter"></div>
-		<div id="employee-pnael-2">
-			<div class="pnael-header grey-text text-lighten-5">デバイスリスト</div>
-			<div class="pnael-content">
+		<div class="panel-splitter"></div>
+		<div id="employee-panel-2">
+			<div class="panel-header grey-text text-lighten-5">端末一覧</div>
+			<div class="panel-content">
 				<table id="device-table-1" class="striped bordered">
 					<thead class="table-header">
 						<tr>
 							<th class=""></th>
-							<th class="text-center light-blue-text text-darken-4">端末グループ</th>
-							<th class="text-center light-blue-text text-darken-4">端末ID</th>
-							<th class="text-center light-blue-text text-darken-4">ドライバー</th>
+							<th class="text-center light-blue-text text-darken-4">グループ</th>
+							<th class="text-center light-blue-text text-darken-4">車両</th>
+							<th class="text-center light-blue-text text-darken-4">運転者</th>
 							<th class="text-center light-blue-text text-darken-4">ナンバー</th>
-							<th class="text-center light-blue-text text-darken-4">メーカー</th>
+							<th class="text-center light-blue-text text-darken-4">車体</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -336,23 +346,23 @@
 	</div>
 
 	<!-- Devices -->
-	<div id="device-pnael">
-		<div id="device-pnael-1">
-			<div class="pnael-header grey-text text-lighten-5">Device Management</div>
-			<div class="pnael-content">
+	<div id="device-panel">
+		<div id="device-panel-1">
+			<div class="panel-header grey-text text-lighten-5">端末管理</div>
+			<div class="panel-content">
 				<table id="device-table-2" class="striped bordered">
 					<thead class="table-header">
 						<tr>
 							<th class=""></th>
 							<th class="text-center light-blue-text text-darken-4">IMEI</th>
-							<th class="text-center light-blue-text text-darken-4">Unit Id</th>
-							<th class="text-center light-blue-text text-darken-4">Unit Group</th>
-							<th class="text-center light-blue-text text-darken-4">Driver</th>
-							<th class="text-center light-blue-text text-darken-4">Plate</th>
-							<th class="text-center light-blue-text text-darken-4">Type</th>
-							<th class="text-center light-blue-text text-darken-4">Year</th>
-							<th class="text-center light-blue-text text-darken-4">Brand</th>
-							<th class="text-center light-blue-text text-darken-4">Model</th>
+							<th class="text-center light-blue-text text-darken-4">車両</th>
+							<th class="text-center light-blue-text text-darken-4">グループ</th>
+							<th class="text-center light-blue-text text-darken-4">ドライバー</th>
+							<th class="text-center light-blue-text text-darken-4">ナンバー</th>
+							<th class="text-center light-blue-text text-darken-4">車種</th>
+							<th class="text-center light-blue-text text-darken-4">年式</th>
+							<th class="text-center light-blue-text text-darken-4">メーカー</th>
+							<th class="text-center light-blue-text text-darken-4">モデル</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -374,10 +384,160 @@
 				</table>
 			</div>
 		</div>
-		<div class="pnael-splitter"></div>
-		<div id="device-pnael-2">
-			<div class="pnael-header grey-text text-lighten-5">Tracker Status</div>
-			<div class="pnael-content light-blue-text text-darken-3">Track is not assigned or blocked</div>
+		<div class="panel-splitter"></div>
+		<div id="device-panel-2">
+			<div class="panel-header grey-text text-lighten-5">端末ステータス</div>
+			<div class="panel-content light-blue-text text-darken-3">Track is not assigned or blocked</div>
+		</div>
+	</div>
+
+	<!-- Violation -->
+	<div id="violation-panel">
+		<div id="violation-pnael-1">
+			<div class="panel-header grey-text text-lighten-5">違反履歴</div>
+			<div class="panel-action">
+				<div>
+					<input type="date" class="datepicker-1" value="2016-11-01"> <img src="/tracker/img/calendar.png" class="datepicker-icon-1">
+				</div>
+				<div class="violation-panel-action-1">~</div>
+				<div>
+					<input type="date" class="datepicker-1" value="2016-11-05"> <img src="/tracker/img/calendar.png" class="datepicker-icon-1">
+				</div>
+				<a class="waves-effect waves-light btn light-blue darken-2 violation-panel-action-2"><i class="material-icons left">search</i>Search</a>
+			</div>
+			<div class="panel-content">
+				<table id="violation-table" class="bordered">
+					<thead class="table-header">
+						<tr>
+							<th class=""></th>
+							<th class="text-center light-blue-text text-darken-4">氏名</th>
+							<th class="text-center light-blue-text text-darken-4">運転時間</th>
+							<th class="text-center light-blue-text text-darken-4">スピードオーバー</th>
+							<th class="text-center light-blue-text text-darken-4">急加速</th>
+							<th class="text-center light-blue-text text-darken-4">急ハンドル</th>
+							<th class="text-center light-blue-text text-darken-4">急ブレーキ</th>
+							<th class="text-center light-blue-text text-darken-4">Total</th>
+							<th class="text-center light-blue-text text-darken-4">Rate</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach var="driver" items="${drivers}">
+							<tr class="violation-normal violation-item" onclick="violationOnClick($(this), '${driver.id}')">
+								<td><img src="/tracker/img/${driver.photo}" alt="" class="circle driver-icon"></td>
+								<td class="">${driver.name}</td>
+								<td class="text-center">${driver.workHour}</td>
+								<td class="text-center">${driver.violentSpeeding}</td>
+								<td class="text-center">${driver.violentHarshAcceleration}</td>
+								<td class="text-center">${driver.violentHarshCornering}</td>
+								<td class="text-center">${driver.violentHarshBraking}</td>
+								<td class="text-center">${driver.violentTotal}</td>
+								<td class="text-center">${driver.violentRecord}</td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="panel-splitter"></div>
+		<div id="violation-panel-2">
+			<div class="panel-header grey-text text-lighten-5">Violation Detail</div>
+			<div id="map2"></div>
+			<div class="panel-content">
+				<table id="violation-detail-table-1" class="bordered">
+					<thead class="table-header">
+						<tr>
+							<th class="text-center light-blue-text text-darken-4">Date Time</th>
+							<th class="text-center light-blue-text text-darken-4">Event</th>
+							<th class="text-center light-blue-text text-darken-4">Location</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach var="v" items="${violationDetails1}">
+							<tr class="violation-normal violation-detail-item" onclick="violationDetailOnClick($(this), ${v.longitude}, ${v.latitude})">
+								<td class="text-center">${v.date}</td>
+								<td class="text-center">${v.event}</td>
+								<td class="text-center">${v.location}</td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+				
+				<table id="violation-detail-table-2" class="bordered">
+					<thead class="table-header">
+						<tr>
+							<th class="text-center light-blue-text text-darken-4">Date Time</th>
+							<th class="text-center light-blue-text text-darken-4">Event</th>
+							<th class="text-center light-blue-text text-darken-4">Location</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach var="v" items="${violationDetails2}">
+							<tr class="violation-normal violation-detail-item" onclick="violationDetailOnClick($(this), ${v.longitude}, ${v.latitude})">
+								<td class="text-center">${v.date}</td>
+								<td class="text-center">${v.event}</td>
+								<td class="text-center">${v.location}</td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+				
+				<table id="violation-detail-table-3" class="bordered">
+					<thead class="table-header">
+						<tr>
+							<th class="text-center light-blue-text text-darken-4">Date Time</th>
+							<th class="text-center light-blue-text text-darken-4">Event</th>
+							<th class="text-center light-blue-text text-darken-4">Location</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach var="v" items="${violationDetails3}">
+							<tr class="violation-normal violation-detail-item" onclick="violationDetailOnClick($(this), ${v.longitude}, ${v.latitude})">
+								<td class="text-center">${v.date}</td>
+								<td class="text-center">${v.event}</td>
+								<td class="text-center">${v.location}</td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+				
+				<table id="violation-detail-table-4" class="bordered">
+					<thead class="table-header">
+						<tr>
+							<th class="text-center light-blue-text text-darken-4">Date Time</th>
+							<th class="text-center light-blue-text text-darken-4">Event</th>
+							<th class="text-center light-blue-text text-darken-4">Location</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach var="v" items="${violationDetails4}">
+							<tr class="violation-normal violation-detail-item" onclick="violationDetailOnClick($(this), ${v.longitude}, ${v.latitude})">
+								<td class="text-center">${v.date}</td>
+								<td class="text-center">${v.event}</td>
+								<td class="text-center">${v.location}</td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+				
+				<table id="violation-detail-table-5" class="bordered">
+					<thead class="table-header">
+						<tr>
+							<th class="text-center light-blue-text text-darken-4">Date Time</th>
+							<th class="text-center light-blue-text text-darken-4">Event</th>
+							<th class="text-center light-blue-text text-darken-4">Location</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach var="v" items="${violationDetails5}">
+							<tr class="violation-normal violation-detail-item" onclick="violationDetailOnClick($(this), ${v.longitude}, ${v.latitude})">
+								<td class="text-center">${v.date}</td>
+								<td class="text-center">${v.event}</td>
+								<td class="text-center">${v.location}</td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+			</div>
 		</div>
 	</div>
 
@@ -387,7 +547,7 @@
 		<div class="playback-pnael-content">
 			<div class="playback-pnael-content-top">
 				<div class="playback-pnael-content-top-1">
-					<input type="date" class="datepicker" value="25-08-2016"> <img src="/tracker/img/calendar.png" class="datepicker-icon">
+					<input type="date" class="datepicker" value="2016-11-01"> <img src="/tracker/img/calendar.png" class="datepicker-icon">
 				</div>
 				<div class="playback-pnael-content-top-2">
 					<div id="playback-play-button" class="text-center z-depth-1 waves-effect waves-light">
@@ -435,7 +595,7 @@
 					<div class="modal-input-div-label light-blue-text text-lighten-5">Unit Id</div>
 					<select id="unit-select" class="modal-input-div-select light-blue-text text-darken-4">
 						<option value="" disabled selected>Choose desired unit id</option>
-						<option value="1">Vehicle 06</option>
+						<option value="1">車両 06</option>
 					</select>
 				</div>
 			</div>
@@ -449,9 +609,11 @@
 		</div>
 	</div>
 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" type="text/javascript"></script>
+	<!-- 	<script src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js" type="text/javascript" ></script> -->
+	<!-- 	<script src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js" type="text/javascript" ></script> -->
 	<script src="//cdn.jsdelivr.net/sockjs/1/sockjs.min.js" type="text/javascript"></script>
 	<script src="js/stomp.js" type="text/javascript" type="text/javascript"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" type="text/javascript"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js" type="text/javascript"></script>
 	<script src="js/data.js" type="text/javascript" type="text/javascript"></script>
 	<script src="js/home.js" type="text/javascript" type="text/javascript"></script>

@@ -55,6 +55,11 @@ public class MessageController {
 		model.addObject("drivers", positionSimulator.getDrivers());
 		model.addObject("units", positionSimulator.getUnits());
 		model.addObject("pois", positionSimulator.getPois());
+		model.addObject("violationDetails1", positionSimulator.getViolationDetails1());
+		model.addObject("violationDetails2", positionSimulator.getViolationDetails2());
+		model.addObject("violationDetails3", positionSimulator.getViolationDetails3());
+		model.addObject("violationDetails4", positionSimulator.getViolationDetails4());
+		model.addObject("violationDetails5", positionSimulator.getViolationDetails5());
 		model.setViewName("home");
 		return model;
 	}
