@@ -8,8 +8,6 @@
 <meta charset="utf-8">
 <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css" rel="stylesheet">
-<!-- <link href="//cdn.jsdelivr.net/bootstrap/3/css/bootstrap.css" type="text/css" rel="stylesheet" /> -->
-<!-- <link href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" type="text/css" rel="stylesheet" /> -->
 <title>Binodata Tracker</title>
 <link href="<c:url value="/css/home.css" />" rel="stylesheet" type="text/css">
 </head>
@@ -302,7 +300,7 @@
 						<c:forEach var="driver" items="${drivers}">
 							<tr>
 								<td><img src="/tracker/img/${driver.photo}" alt="" class="circle driver-icon"></td>
-								<td class="light-blue-text text-darken-3">${driver.name}</td>
+								<td class="light-blue-text text-darken-3 text-center">${driver.name}</td>
 								<td class="light-blue-text text-darken-3 text-center">${driver.phone}</td>
 								<td class="light-blue-text text-darken-3 text-center">${driver.currentScore}</td>
 								<td class="light-blue-text text-darken-3 text-center">${driver.violentRecord}</td>
@@ -417,7 +415,7 @@
 							<th class="text-center light-blue-text text-darken-4">急ハンドル</th>
 							<th class="text-center light-blue-text text-darken-4">急ブレーキ</th>
 							<th class="text-center light-blue-text text-darken-4">Total</th>
-							<th class="text-center light-blue-text text-darken-4">Rate</th>
+							<th class="text-center light-blue-text text-darken-4">Rank</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -610,8 +608,6 @@
 	</div>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" type="text/javascript"></script>
-	<!-- 	<script src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js" type="text/javascript" ></script> -->
-	<!-- 	<script src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js" type="text/javascript" ></script> -->
 	<script src="//cdn.jsdelivr.net/sockjs/1/sockjs.min.js" type="text/javascript"></script>
 	<script src="js/stomp.js" type="text/javascript" type="text/javascript"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js" type="text/javascript"></script>

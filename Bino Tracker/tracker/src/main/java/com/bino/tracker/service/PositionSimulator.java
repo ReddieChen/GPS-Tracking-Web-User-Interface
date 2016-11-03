@@ -120,163 +120,211 @@ public class PositionSimulator {
 
 	private void initViolationDetails1() {
 		ViolationDetail v = new ViolationDetail();
-		v.setDate("2016-11-12 12:77 AM");
+		v.setDate("2016-11-01 01:17 AM");
 		v.setEvent("スピードオーバー");
-		v.setLatitude(33.212227);
-		v.setLongitude(131.631527);
-		v.setLocation("大分縣大分市");
+		v.setLatitude(35.552103);
+		v.setLongitude(135.479522);
+		v.setLocation("県道21号線");
 		violationDetails1.add(v);
 
 		v = new ViolationDetail();
-		v.setDate("2016-11-21 12:55 PM");
+		v.setDate("2016-11-01 02:55 AM");
 		v.setEvent("急加速");
-		v.setLatitude(33.213227);
-		v.setLongitude(131.231527);
-		v.setLocation("大分縣大分市");
+		v.setLatitude(33.244872);
+		v.setLongitude(131.705530);
+		v.setLocation("大分県大分市花江川9-4");
 		violationDetails1.add(v);
 
 		v = new ViolationDetail();
-		v.setDate("2016-11-02 14:27 AM");
+		v.setDate("2016-11-01 04:27 AM");
+		v.setEvent("急ブレーキ");
+		v.setLatitude(33.005285);
+		v.setLongitude(131.250106);
+		v.setLocation("豊後街道");
+		violationDetails1.add(v);
+
+		v = new ViolationDetail();
+		v.setDate("2016-11-01 07:47 AM");
+		v.setEvent("急ブレーキ");
+		v.setLatitude(33.182515);
+		v.setLongitude(131.606444);
+		v.setLocation("県道682号線");
+		violationDetails1.add(v);
+		
+		v = new ViolationDetail();
+		v.setDate("2016-11-01 08:55 AM");
+		v.setEvent("急ブレーキ");
+		v.setLatitude(33.220117);
+		v.setLongitude(131.597689);
+		v.setLocation("大分県大分市永興1665");
+		violationDetails1.add(v);
+		
+		v = new ViolationDetail();
+		v.setDate("2016-11-01 09:55 AM");
+		v.setEvent("急加速");
+		v.setLatitude(33.210289);
+		v.setLongitude(131.552074);
+		v.setLocation("医大バイパス");
+		violationDetails1.add(v);
+		
+		v = new ViolationDetail();
+		v.setDate("2016-11-01 01:55 PM");
 		v.setEvent("スピードオーバー");
-		v.setLatitude(33.211227);
-		v.setLongitude(131.431527);
-		v.setLocation("大分縣大分市");
+		v.setLatitude(33.215239);
+		v.setLongitude(131.603224);
+		v.setLocation("大分県大分市羽屋35-9");
 		violationDetails1.add(v);
-
+		
 		v = new ViolationDetail();
-		v.setDate("2016-11-01 13:47 AM");
+		v.setDate("2016-11-01 03:25 PM");
+		v.setEvent("急ハンドル");
+		v.setLatitude(33.222680);
+		v.setLongitude(131.595284);
+		v.setLocation("大道バイパス");
+		violationDetails1.add(v);
+		
+		v = new ViolationDetail();
+		v.setDate("2016-11-01 09:45 PM");
+		v.setEvent("急ブレーキ");
+		v.setLatitude(34.708785);
+		v.setLongitude(134.857064);
+		v.setLocation("県道539号線");
+		violationDetails1.add(v);
+		
+		v = new ViolationDetail();
+		v.setDate("2016-11-01 09:46 PM");
 		v.setEvent("急加速");
-		v.setLatitude(33.612227);
-		v.setLongitude(131.831527);
-		v.setLocation("大分縣大分市");
+		v.setLatitude(32.478121);
+		v.setLongitude(131.630523);
+		v.setLocation("東九州自動車道");
 		violationDetails1.add(v);
 	}
 	
 	private void initViolationDetails2() {
 		ViolationDetail v = new ViolationDetail();
-		v.setDate("2016-11-12 12:77 AM");
-		v.setEvent("スピードオーバー");
-		v.setLatitude(33.213227);
-		v.setLongitude(131.635527);
-		v.setLocation("大分縣大分市2");
+		v.setDate("2016-11-01 04:27 AM");
+		v.setEvent("急ブレーキ");
+		v.setLatitude(33.005285);
+		v.setLongitude(131.250106);
+		v.setLocation("豊後街道");
 		violationDetails2.add(v);
 
 		v = new ViolationDetail();
-		v.setDate("2016-11-21 12:55 PM");
-		v.setEvent("急加速");
-		v.setLatitude(33.213227);
-		v.setLongitude(131.231527);
-		v.setLocation("大分縣大分市2");
-		violationDetails2.add(v);
-
-		v = new ViolationDetail();
-		v.setDate("2016-11-02 14:27 AM");
-		v.setEvent("スピードオーバー");
-		v.setLatitude(33.213227);
-		v.setLongitude(131.431527);
-		v.setLocation("大分縣大分市2");
-		violationDetails2.add(v);
-
-		v = new ViolationDetail();
-		v.setDate("2016-11-01 13:47 AM");
-		v.setEvent("急加速");
-		v.setLatitude(33.612227);
-		v.setLongitude(131.831527);
-		v.setLocation("大分縣大分市2");
+		v.setDate("2016-11-01 07:47 AM");
+		v.setEvent("急ブレーキ");
+		v.setLatitude(33.182515);
+		v.setLongitude(131.606444);
+		v.setLocation("県道682号線");
 		violationDetails2.add(v);
 		
 		v = new ViolationDetail();
-		v.setDate("2016-11-21 12:55 PM");
-		v.setEvent("急加速");
-		v.setLatitude(33.213227);
-		v.setLongitude(131.231527);
-		v.setLocation("大分縣大分市2");
+		v.setDate("2016-11-01 08:55 AM");
+		v.setEvent("急ブレーキ");
+		v.setLatitude(33.220117);
+		v.setLongitude(131.597689);
+		v.setLocation("大分県大分市永興1665");
 		violationDetails2.add(v);
-
+		
 		v = new ViolationDetail();
-		v.setDate("2016-11-02 14:27 AM");
-		v.setEvent("スピードオーバー");
-		v.setLatitude(33.213227);
-		v.setLongitude(131.431527);
-		v.setLocation("大分縣大分市2");
-		violationDetails2.add(v);
-
-		v = new ViolationDetail();
-		v.setDate("2016-11-01 13:47 AM");
+		v.setDate("2016-11-01 09:55 AM");
 		v.setEvent("急加速");
-		v.setLatitude(33.612227);
-		v.setLongitude(131.831527);
-		v.setLocation("大分縣大分市2");
+		v.setLatitude(33.210289);
+		v.setLongitude(131.552074);
+		v.setLocation("医大バイパス");
 		violationDetails2.add(v);
 	}
 	
 	private void initViolationDetails3() {
 		ViolationDetail v = new ViolationDetail();
-		v.setDate("2016-11-12 12:77 AM");
-		v.setEvent("スピードオーバー");
-		v.setLatitude(33.212227);
-		v.setLongitude(131.632527);
-		v.setLocation("大分縣大分市3");
+		v.setDate("2016-11-01 08:55 AM");
+		v.setEvent("急ブレーキ");
+		v.setLatitude(33.220117);
+		v.setLongitude(131.597689);
+		v.setLocation("大分県大分市永興1665");
 		violationDetails3.add(v);
-
+		
 		v = new ViolationDetail();
-		v.setDate("2016-11-21 12:55 PM");
+		v.setDate("2016-11-01 09:55 AM");
 		v.setEvent("急加速");
-		v.setLatitude(33.213227);
-		v.setLongitude(131.231527);
-		v.setLocation("大分縣大分市3");
+		v.setLatitude(33.210289);
+		v.setLongitude(131.552074);
+		v.setLocation("医大バイパス");
+		violationDetails3.add(v);
+		
+		v = new ViolationDetail();
+		v.setDate("2016-11-01 01:55 PM");
+		v.setEvent("スピードオーバー");
+		v.setLatitude(33.215239);
+		v.setLongitude(131.603224);
+		v.setLocation("大分県大分市羽屋35-9");
+		violationDetails3.add(v);
+		
+		v = new ViolationDetail();
+		v.setDate("2016-11-01 03:25 PM");
+		v.setEvent("急ハンドル");
+		v.setLatitude(33.222680);
+		v.setLongitude(131.595284);
+		v.setLocation("大道バイパス");
+		violationDetails3.add(v);
+		
+		v = new ViolationDetail();
+		v.setDate("2016-11-01 09:45 PM");
+		v.setEvent("急ブレーキ");
+		v.setLatitude(34.708785);
+		v.setLongitude(134.857064);
+		v.setLocation("県道539号線");
+		violationDetails3.add(v);
+		
+		v = new ViolationDetail();
+		v.setDate("2016-11-01 09:46 PM");
+		v.setEvent("急加速");
+		v.setLatitude(32.478121);
+		v.setLongitude(131.630523);
+		v.setLocation("東九州自動車道");
 		violationDetails3.add(v);
 	}
 	
 	private void initViolationDetails4() {
 		ViolationDetail v = new ViolationDetail();
-		v.setDate("2016-11-12 12:77 AM");
+		v.setDate("2016-11-01 01:17 AM");
 		v.setEvent("スピードオーバー");
-		v.setLatitude(33.212227);
-		v.setLongitude(131.631527);
-		v.setLocation("大分縣大分市4");
+		v.setLatitude(35.552103);
+		v.setLongitude(135.479522);
+		v.setLocation("県道21号線");
 		violationDetails4.add(v);
 
 		v = new ViolationDetail();
-		v.setDate("2016-11-21 12:55 PM");
+		v.setDate("2016-11-01 02:55 AM");
 		v.setEvent("急加速");
-		v.setLatitude(33.213227);
-		v.setLongitude(131.231527);
-		v.setLocation("大分縣大分市4");
+		v.setLatitude(33.244872);
+		v.setLongitude(131.705530);
+		v.setLocation("大分県大分市花江川9-4");
 		violationDetails4.add(v);
 
 		v = new ViolationDetail();
-		v.setDate("2016-11-02 14:27 AM");
-		v.setEvent("スピードオーバー");
-		v.setLatitude(33.211227);
-		v.setLongitude(131.431527);
-		v.setLocation("大分縣大分市4");
-		violationDetails4.add(v);
-
-		v = new ViolationDetail();
-		v.setDate("2016-11-01 13:47 AM");
-		v.setEvent("急加速");
-		v.setLatitude(33.612227);
-		v.setLongitude(131.831527);
-		v.setLocation("大分縣大分市4");
+		v.setDate("2016-11-01 04:27 AM");
+		v.setEvent("急ブレーキ");
+		v.setLatitude(33.005285);
+		v.setLongitude(131.250106);
+		v.setLocation("豊後街道");
 		violationDetails4.add(v);
 	}
 	
 	private void initViolationDetails5() {
 		ViolationDetail v = new ViolationDetail();
-		v.setDate("2016-11-12 12:77 AM");
-		v.setEvent("スピードオーバー");
-		v.setLatitude(33.211227);
-		v.setLongitude(131.632527);
-		v.setLocation("大分縣大分市5");
+		v.setDate("2016-11-01 02:55 AM");
+		v.setEvent("急加速");
+		v.setLatitude(33.244872);
+		v.setLongitude(131.705530);
+		v.setLocation("大分県大分市花江川9-4");
 		violationDetails5.add(v);
 
 		v = new ViolationDetail();
-		v.setDate("2016-11-21 12:55 PM");
-		v.setEvent("急加速");
-		v.setLatitude(33.213227);
-		v.setLongitude(131.231527);
-		v.setLocation("大分縣大分市5");
+		v.setDate("2016-11-01 04:27 AM");
+		v.setEvent("急ブレーキ");
+		v.setLatitude(33.005285);
+		v.setLongitude(131.250106);
+		v.setLocation("豊後街道");
 		violationDetails5.add(v);
 	}
 
@@ -392,12 +440,12 @@ public class PositionSimulator {
 		d.setCurrentScore(87);
 		d.setWorkHour(207);
 		d.setPhoto("driver1.png");
-		d.setViolentRecord("A+");
+		d.setViolentRecord("C");
 		d.setViolentSpeeding(2);
 		d.setViolentHarshAcceleration(3);
 		d.setViolentHarshBraking(4);
-		d.setViolentHarshCornering(5);
-		d.setViolentTotal(14);
+		d.setViolentHarshCornering(1);
+		d.setViolentTotal(10);
 		drivers.add(d);
 
 		d = new Driver();
@@ -408,11 +456,11 @@ public class PositionSimulator {
 		d.setWorkHour(223);
 		d.setPhoto("driver2.png");
 		d.setViolentRecord("A");
-		d.setViolentSpeeding(2);
-		d.setViolentHarshAcceleration(3);
-		d.setViolentHarshBraking(4);
-		d.setViolentHarshCornering(5);
-		d.setViolentTotal(14);
+		d.setViolentSpeeding(0);
+		d.setViolentHarshAcceleration(1);
+		d.setViolentHarshBraking(3);
+		d.setViolentHarshCornering(0);
+		d.setViolentTotal(4);
 		drivers.add(d);
 
 		d = new Driver();
@@ -422,12 +470,12 @@ public class PositionSimulator {
 		d.setCurrentScore(87);
 		d.setWorkHour(211);
 		d.setPhoto("driver3.png");
-		d.setViolentRecord("S");
-		d.setViolentSpeeding(2);
-		d.setViolentHarshAcceleration(3);
-		d.setViolentHarshBraking(4);
-		d.setViolentHarshCornering(5);
-		d.setViolentTotal(14);
+		d.setViolentRecord("B");
+		d.setViolentSpeeding(1);
+		d.setViolentHarshAcceleration(2);
+		d.setViolentHarshBraking(2);
+		d.setViolentHarshCornering(1);
+		d.setViolentTotal(6);
 		drivers.add(d);
 
 		d = new Driver();
@@ -437,12 +485,12 @@ public class PositionSimulator {
 		d.setCurrentScore(127);
 		d.setWorkHour(212);
 		d.setPhoto("driver4.png");
-		d.setViolentRecord("C");
-		d.setViolentSpeeding(2);
-		d.setViolentHarshAcceleration(3);
-		d.setViolentHarshBraking(4);
-		d.setViolentHarshCornering(5);
-		d.setViolentTotal(14);
+		d.setViolentRecord("A");
+		d.setViolentSpeeding(1);
+		d.setViolentHarshAcceleration(1);
+		d.setViolentHarshBraking(1);
+		d.setViolentHarshCornering(0);
+		d.setViolentTotal(3);
 		drivers.add(d);
 
 		d = new Driver();
@@ -452,12 +500,12 @@ public class PositionSimulator {
 		d.setCurrentScore(23);
 		d.setWorkHour(227);
 		d.setPhoto("driver5.png");
-		d.setViolentRecord("B+");
-		d.setViolentSpeeding(2);
-		d.setViolentHarshAcceleration(3);
-		d.setViolentHarshBraking(4);
-		d.setViolentHarshCornering(5);
-		d.setViolentTotal(14);
+		d.setViolentRecord("S");
+		d.setViolentSpeeding(0);
+		d.setViolentHarshAcceleration(1);
+		d.setViolentHarshBraking(1);
+		d.setViolentHarshCornering(0);
+		d.setViolentTotal(2);
 		drivers.add(d);
 	}
 

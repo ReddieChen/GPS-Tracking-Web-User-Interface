@@ -28,11 +28,6 @@ var playbackLineArray = [];
 
 $(document).ready(function() {
 	initObjectListPanel();
-	// $('#poi-listview-panel').hide();
-	// $('#geofence-tool-panel').hide();
-	// $('#geofence-listview-panel').hide();
-	// $('#playback-control-panel').hide();
-	// $('#playback-object-listview-panel').hide();
 	$('select').material_select();
 	$('.tooltipped').tooltip({
 		delay : 50
@@ -51,15 +46,6 @@ $(document).ready(function() {
 		closeOnSelect : true,
 		closeOnClear : true,
 	});
-	// $('input[name="daterange"]').daterangepicker({
-	// locale : {
-	// format : 'YYYY-MM-DD'
-	// },
-	// startDate : '2013-01-01',
-	// endDate : '2013-12-31'
-	// }, function(start, end, label) {
-	// alert("A new date range was chosen: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
-	// });
 	bindClickEvents();
 	connect();
 	setInterval(playbackInterval, 1000);
@@ -435,7 +421,7 @@ function bindClickEvents() {
 		$('#violation-detail-table-3').hide();
 		$('#violation-detail-table-4').hide();
 		$('#violation-detail-table-5').hide();
-		panToMarkerOnMap2(33.212227, 131.631527);
+		panToMarkerOnMap2(35.552103, 135.479522);
 	});
 
 	$('#right-side-events').click(function() {
@@ -556,32 +542,12 @@ function drawPlaybackPathOnMap() {
 	}
 }
 
-// function drawPlaybackPathOnMap() {
-// if (!playbackPath) {
-// playbackPath = new google.maps.Polyline({
-// path : playbackDataArray,
-// geodesic : true,
-// strokeColor : '#0277bd',
-// strokeOpacity : 0.7,
-// strokeWeight : 6
-// });
-// playbackPath.setMap(map);
-// }
-// }
-
 function clearPlaybackPathOnMap() {
 	for (var i = 0; i < playbackLineArray.length; i++) {
 		playbackLineArray[i].setMap(null);
 	}
 	playbackLineArray = [];
 }
-
-//function clearPlaybackPathOnMap() {
-//	if (playbackPath) {
-//		playbackPath.setMap(null);
-//	}
-//	playbackPath = null;
-//}
 
 function createDriver(id, name, phone, unitId) {
 	$('#employee-table tbody').append(makeUnitIdTable1(id, name, phone, unitId));
@@ -680,7 +646,7 @@ function violationOnClick(ele, driverId) {
 		$('#violation-detail-table-4').hide();
 		$('#violation-detail-table-5').hide();
 		$($('#violation-detail-table-1 .violation-detail-item')[0]).addClass('violation-selected');
-		panToMarkerOnMap2(33.212227, 131.631527);
+		panToMarkerOnMap2(35.552103, 135.479522);
 	} else if (driverId == '002') {
 		$('#violation-detail-table-1').hide();
 		$('#violation-detail-table-2').show();
@@ -688,7 +654,7 @@ function violationOnClick(ele, driverId) {
 		$('#violation-detail-table-4').hide();
 		$('#violation-detail-table-5').hide();
 		$($('#violation-detail-table-2 .violation-detail-item')[0]).addClass('violation-selected');
-		panToMarkerOnMap2(33.213227, 131.635527);
+		panToMarkerOnMap2(33.005285, 131.250106);
 	} else if (driverId == '003') {
 		$('#violation-detail-table-1').hide();
 		$('#violation-detail-table-2').hide();
@@ -696,7 +662,7 @@ function violationOnClick(ele, driverId) {
 		$('#violation-detail-table-4').hide();
 		$('#violation-detail-table-5').hide();
 		$($('#violation-detail-table-3 .violation-detail-item')[0]).addClass('violation-selected');
-		panToMarkerOnMap2(33.212227, 131.632527);
+		panToMarkerOnMap2(33.220117, 131.597689);
 	} else if (driverId == '004') {
 		$('#violation-detail-table-1').hide();
 		$('#violation-detail-table-2').hide();
@@ -704,7 +670,7 @@ function violationOnClick(ele, driverId) {
 		$('#violation-detail-table-4').show();
 		$('#violation-detail-table-5').hide();
 		$($('#violation-detail-table-4 .violation-detail-item')[0]).addClass('violation-selected');
-		panToMarkerOnMap2(33.212227, 131.631527);
+		panToMarkerOnMap2(35.552103, 135.479522);
 	} else if (driverId == '005') {
 		$('#violation-detail-table-1').hide();
 		$('#violation-detail-table-2').hide();
@@ -712,7 +678,7 @@ function violationOnClick(ele, driverId) {
 		$('#violation-detail-table-4').hide();
 		$('#violation-detail-table-5').show();
 		$($('#violation-detail-table-5 .violation-detail-item')[0]).addClass('violation-selected');
-		panToMarkerOnMap2(33.211227, 131.632527);
+		panToMarkerOnMap2(33.244872, 131.705530);
 	}
 }
 

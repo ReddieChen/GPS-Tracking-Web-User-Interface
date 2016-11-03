@@ -973,3 +973,65 @@ li span {
 	display: none;
 }
 
+#violation-table th {
+	font-size: 10px;
+}
+
+#violation-table td {
+	font-size: 14px;
+}
+
+#violation-detail-table-1 th {
+	font-size: 14px;
+}
+
+#violation-detail-table-1 td {
+	font-size: 13px;
+}
+
+#violation-detail-table-2 th {
+	font-size: 14px;
+}
+
+#violation-detail-table-2 td {
+	font-size: 13px;
+}
+
+#violation-detail-table-3 th {
+	font-size: 14px;
+}
+
+#violation-detail-table-3 td {
+	font-size: 13px;
+}
+
+#violation-detail-table-4 th {
+	font-size: 14px;
+}
+
+#violation-detail-table-4 td {
+	font-size: 13px;
+}
+
+#violation-detail-table-5 th {
+	font-size: 14px;
+}
+
+#violation-detail-table-5 td {
+	font-size: 13px;
+}
+
+
+
+
+#device-table-2 th {
+	font-size: 10px;
+}
+
+#employee-table th {
+	font-size: 10px;
+}
+
+#device-table-1 th {
+	font-size: 10px;
+}
