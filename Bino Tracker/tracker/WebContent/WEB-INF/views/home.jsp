@@ -153,7 +153,7 @@
 				<i class="small-icon material-icons tooltipped" data-position="bottom" data-delay="50" data-tooltip="レンジ">track_changes</i>
 			</div>
 		</div>
-		<div>
+		<div class="scrollable">
 			<c:forEach var="poi" items="${pois}">
 				<div class="poi-listview-collection-item waves-effect waves-blue" onclick="poiOnClick($(this), ${poi.latitude}, ${poi.longitude}, ${poi.range})">
 					<div class="poi-listview-collection-item-1">
@@ -291,8 +291,7 @@
 							<th class=""></th>
 							<th class="text-center light-blue-text text-darken-4">氏名</th>
 							<th class="text-center light-blue-text text-darken-4">連絡先</th>
-							<th class="text-center light-blue-text text-darken-4">スコア</th>
-							<th class="text-center light-blue-text text-darken-4">Rate</th>
+							<th class="text-center light-blue-text text-darken-4">Rank</th>
 							<th class="text-center light-blue-text text-darken-4">運転時間</th>
 						</tr>
 					</thead>
@@ -302,7 +301,6 @@
 								<td><img src="/tracker/img/${driver.photo}" alt="" class="circle driver-icon"></td>
 								<td class="light-blue-text text-darken-3 text-center">${driver.name}</td>
 								<td class="light-blue-text text-darken-3 text-center">${driver.phone}</td>
-								<td class="light-blue-text text-darken-3 text-center">${driver.currentScore}</td>
 								<td class="light-blue-text text-darken-3 text-center">${driver.violentRecord}</td>
 								<td class="light-blue-text text-darken-3 text-center">${driver.workHour}</td>
 							</tr>

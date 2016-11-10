@@ -8,7 +8,9 @@ var stompClient = null;
 var devices = [];
 var markers = [];
 var geofences = [];
-var poi1, poi2, poiTxt1, poiTxt2, poiCircle;
+var poi1, poi2, poi3, poi4, poi5, poi6, poi7, poi8, poi9, poi10, poi11, poi12;  
+var poiTxt1, poiTxt2, poiTxt3, poiTxt4, poiTxt5, poiTxt6, poiTxt7, poiTxt8, poiTxt9, poiTxt10, poiTxt11, poiTxt12; 
+var poiCircle;
 var geofenceType = 'normal';
 var playbackSpeedType = 'speed1';
 var geofenceId = 1;
@@ -240,26 +242,136 @@ function drawGeofenceCirlce(lat, lng) {
 }
 
 function drawPoi() {
-	// Binodata Office
-	var latlng = new google.maps.LatLng(25.063516, 121.522324);
+	// POI1
+	var latlng = new google.maps.LatLng(33.238309, 131.602416);
 	poi1 = new google.maps.Marker({
 		position : latlng,
 		map : map
 	});
 	poi1.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png');
 	poi1.setMap(map);
-	var text = "<div>Binodata office</div>"
-	poiTxt1 = new TxtOverlay(latlng, text, "poi-label", map)
-	// Zhongshan elementary school station
-	latlng = new google.maps.LatLng(25.062628, 121.526397);
+	var text = "<div>オアシスタワー</div>";
+	poiTxt1 = new TxtOverlay(latlng, text, "poi-label", map);
+	// POI2
+	latlng = new google.maps.LatLng(33.239139, 131.597833);
 	poi2 = new google.maps.Marker({
 		position : latlng,
 		map : map
 	});
 	poi2.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png');
 	poi2.setMap(map);
-	text = "<div>Zhongshan elementary school station</div>"
-	poiTxt2 = new TxtOverlay(latlng, text, "poi-label", map)
+	text = "<div>中春日交差点</div>";
+	poiTxt2 = new TxtOverlay(latlng, text, "poi-label", map);
+	// POI3
+	latlng = new google.maps.LatLng(33.224528, 131.571444);
+	poi3 = new google.maps.Marker({
+		position : latlng,
+		map : map
+	});
+	poi3.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png');
+	poi3.setMap(map);
+	text = "<div>大分IC</div>";
+	poiTxt3 = new TxtOverlay(latlng, text, "poi-label", map);
+	// POI4
+	latlng = new google.maps.LatLng(33.232389, 131.605694);
+	poi4 = new google.maps.Marker({
+		position : latlng,
+		map : map
+	});
+	poi4.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png');
+	poi4.setMap(map);
+	text = "<div>大分駅南口</div>";
+	poiTxt4 = new TxtOverlay(latlng, text, "poi-label", map);
+	// POI5
+	latlng = new google.maps.LatLng(33.267972, 131.511278);
+	poi5 = new google.maps.Marker({
+		position : latlng,
+		map : map
+	});
+	poi5.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png');
+	poi5.setMap(map);
+	text = "<div>東別府</div>";
+	poiTxt5 = new TxtOverlay(latlng, text, "poi-label", map);
+	// POI6
+	latlng = new google.maps.LatLng(33.279556, 131.506222);
+	poi6 = new google.maps.Marker({
+		position : latlng,
+		map : map
+	});
+	poi6.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png');
+	poi6.setMap(map);
+	text = "<div>別府北浜</div>";
+	poiTxt6 = new TxtOverlay(latlng, text, "poi-label", map);
+	// POI7
+	latlng = new google.maps.LatLng(33.294750, 131.462944);
+	poi7 = new google.maps.Marker({
+		position : latlng,
+		map : map
+	});
+	poi7.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png');
+	poi7.setMap(map);
+	text = "<div>別府IC</div>";
+	poiTxt7 = new TxtOverlay(latlng, text, "poi-label", map);
+	// POI7
+	latlng = new google.maps.LatLng(33.247028, 131.619917);
+	poi7 = new google.maps.Marker({
+		position : latlng,
+		map : map
+	});
+	poi7.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png');
+	poi7.setMap(map);
+	text = "<div>弁天大橋</div>";
+	poiTxt7 = new TxtOverlay(latlng, text, "poi-label", map);
+	// POI8
+	latlng = new google.maps.LatLng(33.239417, 131.622222);
+	poi8 = new google.maps.Marker({
+		position : latlng,
+		map : map
+	});
+	poi8.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png');
+	poi8.setMap(map);
+	text = "<div>舞鶴橋</div>";
+	poiTxt8 = new TxtOverlay(latlng, text, "poi-label", map);
+	// POI9
+	latlng = new google.maps.LatLng(33.239417, 131.622222);
+	poi9 = new google.maps.Marker({
+		position : latlng,
+		map : map
+	});
+	poi9.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png');
+	poi9.setMap(map);
+	text = "<div>東生石交差点</div>";
+	poiTxt9 = new TxtOverlay(latlng, text, "poi-label", map);
+	// POI10
+	latlng = new google.maps.LatLng(33.243833, 131.587944);
+	poi10 = new google.maps.Marker({
+		position : latlng,
+		map : map
+	});
+	poi10.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png');
+	poi10.setMap(map);
+	text = "<div>東生石交差点</div>";
+	poiTxt10 = new TxtOverlay(latlng, text, "poi-label", map);
+	// POI11
+	latlng = new google.maps.LatLng(33.226028, 131.595333);
+	poi11 = new google.maps.Marker({
+		position : latlng,
+		map : map
+	});
+	poi11.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png');
+	poi11.setMap(map);
+	text = "<div>椎迫交差点</div>";
+	poiTxt11 = new TxtOverlay(latlng, text, "poi-label", map);
+	// POI12
+	latlng = new google.maps.LatLng(33.239194, 131.611611);
+	poi12 = new google.maps.Marker({
+		position : latlng,
+		map : map
+	});
+	poi12.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png');
+	poi12.setMap(map);
+	text = "<div>県庁北交差点</div>";
+	poiTxt12 = new TxtOverlay(latlng, text, "poi-label", map);
 }
 
 function bindClickEvents() {
@@ -1035,11 +1147,32 @@ function bounceMarkerByUnitId(unitId) {
 
 function bounceMarker(lat, lng) {
 	var poi;
-	if (lat == 25.063516 && lng == 121.522324) {
+	if (lat == 33.238309) {
 		poi = poi1;
-	} else if (lat == 25.062628 && lng == 121.526397) {
+	} else if (lat == 33.239139) {
 		poi = poi2;
+	} else if (lat == 33.224528) {
+		poi = poi3;
+	} else if (lat == 33.232389) {
+		poi = poi4;
+	} else if (lat == 33.267972) {
+		poi = poi5;
+	} else if (lat == 33.279556) {
+		poi = poi6;
+	} else if (lat == 33.294750) {
+		poi = poi7;
+	} else if (lat == 33.247028) {
+		poi = poi8;
+	} else if (lat == 33.239417) {
+		poi = poi9;
+	} else if (lat == 33.243833) {
+		poi = poi10;
+	} else if (lat == 33.226028) {
+		poi = poi11;
+	} else if (lat == 33.239194) {
+		poi = poi12;
 	}
+	
 	if (poi) {
 		poi.setOptions({
 			animation : google.maps.Animation.BOUNCE

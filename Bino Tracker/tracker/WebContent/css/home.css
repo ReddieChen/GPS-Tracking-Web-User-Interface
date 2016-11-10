@@ -1021,9 +1021,6 @@ li span {
 	font-size: 13px;
 }
 
-
-
-
 #device-table-2 th {
 	font-size: 10px;
 }
@@ -1034,4 +1031,11 @@ li span {
 
 #device-table-1 th {
 	font-size: 10px;
+}
+
+.scrollable {
+	width: 300px;
+	height: 330px;
+	overflow-x:hidden;
+	overflow-y: auto;
 }

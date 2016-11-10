@@ -22,6 +22,11 @@ public class Poi {
 	public void setLongitude(Double longitude) {
 		this.longitude = longitude;
 	}
+	
+	public void setLatLng(Double latitude, Double longitude) {
+		this.latitude = latitude;
+		this.longitude = longitude;
+	}
 
 	public Double getLatitude() {
 		return latitude;

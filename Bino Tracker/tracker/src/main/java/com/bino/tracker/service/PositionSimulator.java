@@ -1,13 +1,19 @@
 package com.bino.tracker.service;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
+import javax.servlet.ServletContext;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.bino.tracker.util.DateUtil;
 import com.bino.tracker.vo.Driver;
 import com.bino.tracker.vo.Poi;
 import com.bino.tracker.vo.Position;
@@ -25,6 +31,9 @@ public class PositionSimulator {
 	private List<Unit> units = new ArrayList<Unit>();
 	private List<Poi> pois = new ArrayList<Poi>();
 	private List<Frame> car1Frames = new ArrayList<Frame>();
+	private List<Frame> car2Frames = new ArrayList<Frame>();
+	private List<Frame> car3Frames = new ArrayList<Frame>();
+	private List<Frame> car4Frames = new ArrayList<Frame>();
 	private List<ViolationDetail> violationDetails1 = new ArrayList<ViolationDetail>();
 	private List<ViolationDetail> violationDetails2 = new ArrayList<ViolationDetail>();
 	private List<ViolationDetail> violationDetails3 = new ArrayList<ViolationDetail>();
@@ -33,6 +42,9 @@ public class PositionSimulator {
 	private long index = 1;
 	private int eventIndex = 0;
 	private int frame1Index = 0;
+	
+	@Autowired
+    ServletContext context; 
 
 	public List<Position> getPositions() {
 		return positions;
@@ -351,7 +363,7 @@ public class PositionSimulator {
 		p.setUnitId("車両01");
 		p.setExtraGps(4);
 		p.setExtraGsm(20);
-		p.setExtraEngineOn(true);
+		p.setExtraEngineOn(false);
 		p.setExtraSpeedLevel(0);
 		positions.add(p);
 		initCar1Frames();
@@ -378,8 +390,9 @@ public class PositionSimulator {
 		p.setUnitId("車両02");
 		p.setExtraGps(0);
 		p.setExtraGsm(0);
-		p.setExtraEngineOn(true);
+		p.setExtraEngineOn(false);
 		positions.add(p);
+		initCar2Frames();
 
 		p = new Position();
 		p.setAnalog(0);
@@ -508,6 +521,68 @@ public class PositionSimulator {
 		d.setViolentTotal(2);
 		drivers.add(d);
 	}
+	
+	private void initCar1Frames() {
+		BufferedReader br = null;
+		try {
+			br = new BufferedReader(new FileReader(context.getRealPath("WEB-INF/data-car1.txt")));
+			String line = br.readLine();
+			while (line != null) {
+				if (!line.isEmpty()) {
+					String[] data = line.split(",");
+					double lat = Double.parseDouble(data[0].trim());
+					double lng = Double.parseDouble(data[1].trim());
+					int dir = Integer.parseInt(data[2].trim());
+					int spd = Integer.parseInt(data[3].trim());
+					String evt = data.length == 5 ? data[4].trim() : null;
+					System.out.println("Count = " + data.length + ", lat = " + lat + ", lng = " + lng + ", dir = " + dir + ", spd = " + spd);
+					car1Frames.add(new Frame(lat, lng, dir, spd, evt));
+				}
+				line = br.readLine();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (br != null) {
+				try {
+					br.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+	
+	private void initCar2Frames() {
+		BufferedReader br = null;
+		try {
+			br = new BufferedReader(new FileReader(context.getRealPath("WEB-INF/data-car2.txt")));
+			String line = br.readLine();
+			while (line != null) {
+				if (!line.isEmpty()) {
+					String[] data = line.split(",");
+					double lat = Double.parseDouble(data[0].trim());
+					double lng = Double.parseDouble(data[1].trim());
+					int dir = Integer.parseInt(data[2].trim());
+					int spd = Integer.parseInt(data[3].trim());
+					String evt = data.length == 5 ? data[4].trim() : null;
+					System.out.println("Count = " + data.length + ", lat = " + lat + ", lng = " + lng + ", dir = " + dir + ", spd = " + spd);
+					car2Frames.add(new Frame(lat, lng, dir, spd, evt));
+				}
+				line = br.readLine();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (br != null) {
+				try {
+					br.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
 
 	private void initUnits() {
 		Unit u = new Unit();
@@ -590,25 +665,106 @@ public class PositionSimulator {
 	}
 
 	private void initPois() {
+		// 1
 		Poi p = new Poi();
-		p.setPhoto("poi-binodata.png");
-		p.setLongitude(121.522324);
-		p.setLatitude(25.063516);
-		p.setName("Binodata Office");
-		p.setRange(50);
+		p.setPhoto("オアシスタワー.png");
+		p.setLatLng(33.238309, 131.602416);
+		p.setName("オアシスタワー");
+		p.setRange(100);
 		pois.add(p);
 
+		// 2
 		p = new Poi();
-		p.setPhoto("poi-mrt.png");
-		p.setLongitude(121.526397);
-		p.setLatitude(25.062628);
-		p.setName("Zhongshan elementary school station");
+		p.setPhoto("default.png");
+		p.setLatLng(33.239139, 131.597833);
+		p.setName("中春日交差点");
+		p.setRange(80);
+		pois.add(p);
+		
+		// 3
+		p = new Poi();
+		p.setPhoto("default.png");
+		p.setLatLng(33.224528, 131.571444);
+		p.setName("大分IC");
+		p.setRange(300);
+		pois.add(p);
+		
+		// 4
+		p = new Poi();
+		p.setPhoto("default.png");
+		p.setLatLng(33.232389, 131.605694);
+		p.setName("大分駅南口");
+		p.setRange(60);
+		pois.add(p);
+		
+		// 5
+		p = new Poi();
+		p.setPhoto("default.png");
+		p.setLatLng(33.267972, 131.511278);
+		p.setName("東別府");
+		p.setRange(80);
+		pois.add(p);
+		
+		// 6
+		p = new Poi();
+		p.setPhoto("default.png");
+		p.setLatLng(33.279556, 131.506222);
+		p.setName("別府北浜");
+		p.setRange(80);
+		pois.add(p);
+		
+		// 7
+		p = new Poi();
+		p.setPhoto("default.png");
+		p.setLatLng(33.294750, 131.462944);
+		p.setName("別府IC");
+		p.setRange(200);
+		pois.add(p);
+		
+		// 8
+		p = new Poi();
+		p.setPhoto("default.png");
+		p.setLatLng(33.247028, 131.619917);
+		p.setName("弁天大橋");
+		p.setRange(100);
+		pois.add(p);
+		
+		// 9
+		p = new Poi();
+		p.setPhoto("default.png");
+		p.setLatLng(33.239417, 131.622222);
+		p.setName("舞鶴橋");
+		p.setRange(100);
+		pois.add(p);
+		
+		// 10
+		p = new Poi();
+		p.setPhoto("default.png");
+		p.setLatLng(33.243833, 131.587944);
+		p.setName("東生石交差点");
+		p.setRange(60);
+		pois.add(p);
+		
+		// 11
+		p = new Poi();
+		p.setPhoto("default.png");
+		p.setLatLng(33.226028, 131.595333);
+		p.setName("椎迫交差点");
+		p.setRange(60);
+		pois.add(p);
+		
+		// 12
+		p = new Poi();
+		p.setPhoto("default.png");
+		p.setLatLng(33.239194, 131.611611);
+		p.setName("県庁北交差点");
 		p.setRange(80);
 		pois.add(p);
 	}
 
 	private void doWork() {
 		update(positions.get(0), car1Frames);
+		update(positions.get(1), car2Frames);
 		index++;
 	}
 
@@ -617,32 +773,10 @@ public class PositionSimulator {
 		p.setHeading(f.Dir);
 		p.setLongitude(f.Lng);
 		p.setLatitude(f.Lat);
-		p.setExtraEngineOn(!p.getExtraEngineOn());
-		p.setExtraSpeedLevel(p.getExtraSpeedLevel() + 1);
-		if (p.getExtraSpeedLevel() > 10) {
-			p.setExtraSpeedLevel(1);
-		}
-		// if (p.getExtraEngineOn()) {
-		// addPositionEvent(p.getUnitId(), p.getUnitId() + " turns on engine. " + frame1Index);
-		// } else {
-		// addPositionEvent(p.getUnitId(), p.getUnitId() + " turns off engine. " + frame1Index);
-		// }
-		if (frame1Index == 17) {
-			// addPositionEvent(p.getUnitId(), p.getUnitId() + " enters Binodata Office.");
-			String poiName = "台灣雲創軟體";
-			addPositionEvent(p.getUnitId(), poiName + " ポイントに " + p.getUnitId() + "が接近しています");
-		} else if (frame1Index == 23) {
-			// addPositionEvent(p.getUnitId(), p.getUnitId() + " leaves Binodata Office.");
-			String poiName = "台灣雲創軟體";
-			addPositionEvent(p.getUnitId(), poiName + " ポイントから " + p.getUnitId() + "が離れました");
-		} else if (frame1Index == 38) {
-			// addPositionEvent(p.getUnitId(), p.getUnitId() + " enters Zhongshan elementary school station.");
-			String poiName = "中山國小站";
-			addPositionEvent(p.getUnitId(), poiName + " ポイントに " + p.getUnitId() + "が接近しています");
-		} else if (frame1Index == 40) {
-			// addPositionEvent(p.getUnitId(), p.getUnitId() + " leaves Zhongshan elementary school station.");
-			String poiName = "中山國小站";
-			addPositionEvent(p.getUnitId(), poiName + " ポイントから " + p.getUnitId() + "が離れました");
+		p.setExtraEngineOn(true);
+		p.setExtraSpeedLevel(f.Spd);
+		if (f.Evt != null && !f.Evt.isEmpty()) {
+			addPositionEvent(p.getUnitId(), f.Evt);
 		}
 	}
 
@@ -658,77 +792,6 @@ public class PositionSimulator {
 	public Frame getNext(List<Frame> frames) {
 		frame1Index = (int) (index % frames.size());
 		return frames.get(frame1Index);
-	}
-
-	public void initCar1Frames() {
-		car1Frames.add(new Frame(25.068440, 121.522863, 250));
-		car1Frames.add(new Frame(25.068143, 121.522644, 181));
-		car1Frames.add(new Frame(25.067924, 121.522569, 179));
-		car1Frames.add(new Frame(25.067608, 121.522499, 181));
-		car1Frames.add(new Frame(25.067312, 121.522440, 182));
-		car1Frames.add(new Frame(25.067118, 121.522413, 180));
-		car1Frames.add(new Frame(25.066865, 121.522343, 180));
-		car1Frames.add(new Frame(25.066569, 121.522295, 180));
-		car1Frames.add(new Frame(25.066316, 121.522252, 180));
-		car1Frames.add(new Frame(25.065893, 121.522166, 180));
-		car1Frames.add(new Frame(25.065572, 121.522166, 180));
-		car1Frames.add(new Frame(25.065257, 121.522150, 180));
-		car1Frames.add(new Frame(25.064931, 121.522170, 180));
-		car1Frames.add(new Frame(25.064722, 121.522170, 180));
-		car1Frames.add(new Frame(25.064474, 121.522181, 180));
-		car1Frames.add(new Frame(25.064299, 121.522229, 180));
-		car1Frames.add(new Frame(25.064123, 121.522260, 180));
-		car1Frames.add(new Frame(25.063930, 121.522263, 180));
-		car1Frames.add(new Frame(25.063682, 121.522311, 180));
-		car1Frames.add(new Frame(25.063495, 121.522341, 180));
-		car1Frames.add(new Frame(25.063364, 121.522373, 180));
-		car1Frames.add(new Frame(25.063223, 121.522408, 180));
-		car1Frames.add(new Frame(25.063121, 121.522427, 180));
-		car1Frames.add(new Frame(25.062970, 121.522475, 180));
-		car1Frames.add(new Frame(25.062813, 121.522559, 120));
-		car1Frames.add(new Frame(25.062730, 121.522709, 100));
-		car1Frames.add(new Frame(25.062677, 121.522870, 95));
-		car1Frames.add(new Frame(25.062666, 121.523102, 94));
-		car1Frames.add(new Frame(25.062676, 121.523357, 90));
-		car1Frames.add(new Frame(25.062678, 121.523617, 90));
-		car1Frames.add(new Frame(25.062685, 121.523923, 90));
-		car1Frames.add(new Frame(25.062700, 121.524256, 90));
-		car1Frames.add(new Frame(25.062678, 121.524691, 90));
-		car1Frames.add(new Frame(25.062668, 121.524884, 90));
-		car1Frames.add(new Frame(25.062639, 121.525219, 90));
-		car1Frames.add(new Frame(25.062634, 121.525549, 90));
-		car1Frames.add(new Frame(25.062634, 121.525549, 90));
-		car1Frames.add(new Frame(25.062634, 121.525549, 90));
-		car1Frames.add(new Frame(25.062714, 121.525638, 45));
-		car1Frames.add(new Frame(25.062918, 121.525643, 0));
-		car1Frames.add(new Frame(25.063139, 121.525630, 0));
-		car1Frames.add(new Frame(25.063393, 121.525623, 0));
-		car1Frames.add(new Frame(25.063709, 121.525685, 0));
-		car1Frames.add(new Frame(25.063928, 121.525685, 0));
-		car1Frames.add(new Frame(25.063867, 121.525696, 0));
-		car1Frames.add(new Frame(25.063709, 121.525685, 0));
-		car1Frames.add(new Frame(25.063952, 121.525680, 0));
-		car1Frames.add(new Frame(25.064168, 121.525688, 0));
-		car1Frames.add(new Frame(25.064394, 121.525683, 0));
-		car1Frames.add(new Frame(25.064739, 121.525688, 0));
-		car1Frames.add(new Frame(25.065045, 121.525699, 0));
-		car1Frames.add(new Frame(25.065378, 121.525694, 0));
-		car1Frames.add(new Frame(25.065738, 121.525707, 0));
-		car1Frames.add(new Frame(25.066139, 121.525712, 0));
-		car1Frames.add(new Frame(25.066496, 121.525731, 0));
-		car1Frames.add(new Frame(25.066901, 121.525728, 0));
-		car1Frames.add(new Frame(25.067333, 121.525749, 0));
-		car1Frames.add(new Frame(25.067637, 121.525760, 0));
-		car1Frames.add(new Frame(25.067937, 121.525780, 0));
-		car1Frames.add(new Frame(25.068338, 121.525764, 280));
-		car1Frames.add(new Frame(25.068428, 121.525482, 270));
-		car1Frames.add(new Frame(25.068462, 121.524988, 270));
-		car1Frames.add(new Frame(25.068467, 121.524749, 270));
-		car1Frames.add(new Frame(25.068469, 121.524373, 270));
-		car1Frames.add(new Frame(25.068481, 121.523984, 270));
-		car1Frames.add(new Frame(25.068472, 121.523739, 270));
-		car1Frames.add(new Frame(25.068484, 121.523433, 270));
-		car1Frames.add(new Frame(25.068478, 121.523122, 270));
 	}
 
 	private float getRandomFloat() {
@@ -749,11 +812,86 @@ public class PositionSimulator {
 		public double Lng;
 		public double Lat;
 		public int Dir;
+		public int Spd;
+		public String Evt;
 
-		public Frame(double Lat, double Lng, int Dir) {
+		public Frame(double Lat, double Lng, int Dir,int Spd, String Evt) {
 			this.Lng = Lng;
 			this.Lat = Lat;
 			this.Dir = Dir;
+			this.Spd = Spd;
+			this.Evt = Evt;
 		}
 	}
+	
+//	public void initCar1Frames() {
+//		car1Frames.add(new Frame(25.068440, 121.522863, 250));
+//		car1Frames.add(new Frame(25.068143, 121.522644, 181));
+//		car1Frames.add(new Frame(25.067924, 121.522569, 179));
+//		car1Frames.add(new Frame(25.067608, 121.522499, 181));
+//		car1Frames.add(new Frame(25.067312, 121.522440, 182));
+//		car1Frames.add(new Frame(25.067118, 121.522413, 180));
+//		car1Frames.add(new Frame(25.066865, 121.522343, 180));
+//		car1Frames.add(new Frame(25.066569, 121.522295, 180));
+//		car1Frames.add(new Frame(25.066316, 121.522252, 180));
+//		car1Frames.add(new Frame(25.065893, 121.522166, 180));
+//		car1Frames.add(new Frame(25.065572, 121.522166, 180));
+//		car1Frames.add(new Frame(25.065257, 121.522150, 180));
+//		car1Frames.add(new Frame(25.064931, 121.522170, 180));
+//		car1Frames.add(new Frame(25.064722, 121.522170, 180));
+//		car1Frames.add(new Frame(25.064474, 121.522181, 180));
+//		car1Frames.add(new Frame(25.064299, 121.522229, 180));
+//		car1Frames.add(new Frame(25.064123, 121.522260, 180));
+//		car1Frames.add(new Frame(25.063930, 121.522263, 180));
+//		car1Frames.add(new Frame(25.063682, 121.522311, 180));
+//		car1Frames.add(new Frame(25.063495, 121.522341, 180));
+//		car1Frames.add(new Frame(25.063364, 121.522373, 180));
+//		car1Frames.add(new Frame(25.063223, 121.522408, 180));
+//		car1Frames.add(new Frame(25.063121, 121.522427, 180));
+//		car1Frames.add(new Frame(25.062970, 121.522475, 180));
+//		car1Frames.add(new Frame(25.062813, 121.522559, 120));
+//		car1Frames.add(new Frame(25.062730, 121.522709, 100));
+//		car1Frames.add(new Frame(25.062677, 121.522870, 95));
+//		car1Frames.add(new Frame(25.062666, 121.523102, 94));
+//		car1Frames.add(new Frame(25.062676, 121.523357, 90));
+//		car1Frames.add(new Frame(25.062678, 121.523617, 90));
+//		car1Frames.add(new Frame(25.062685, 121.523923, 90));
+//		car1Frames.add(new Frame(25.062700, 121.524256, 90));
+//		car1Frames.add(new Frame(25.062678, 121.524691, 90));
+//		car1Frames.add(new Frame(25.062668, 121.524884, 90));
+//		car1Frames.add(new Frame(25.062639, 121.525219, 90));
+//		car1Frames.add(new Frame(25.062634, 121.525549, 90));
+//		car1Frames.add(new Frame(25.062634, 121.525549, 90));
+//		car1Frames.add(new Frame(25.062634, 121.525549, 90));
+//		car1Frames.add(new Frame(25.062714, 121.525638, 45));
+//		car1Frames.add(new Frame(25.062918, 121.525643, 0));
+//		car1Frames.add(new Frame(25.063139, 121.525630, 0));
+//		car1Frames.add(new Frame(25.063393, 121.525623, 0));
+//		car1Frames.add(new Frame(25.063709, 121.525685, 0));
+//		car1Frames.add(new Frame(25.063928, 121.525685, 0));
+//		car1Frames.add(new Frame(25.063867, 121.525696, 0));
+//		car1Frames.add(new Frame(25.063709, 121.525685, 0));
+//		car1Frames.add(new Frame(25.063952, 121.525680, 0));
+//		car1Frames.add(new Frame(25.064168, 121.525688, 0));
+//		car1Frames.add(new Frame(25.064394, 121.525683, 0));
+//		car1Frames.add(new Frame(25.064739, 121.525688, 0));
+//		car1Frames.add(new Frame(25.065045, 121.525699, 0));
+//		car1Frames.add(new Frame(25.065378, 121.525694, 0));
+//		car1Frames.add(new Frame(25.065738, 121.525707, 0));
+//		car1Frames.add(new Frame(25.066139, 121.525712, 0));
+//		car1Frames.add(new Frame(25.066496, 121.525731, 0));
+//		car1Frames.add(new Frame(25.066901, 121.525728, 0));
+//		car1Frames.add(new Frame(25.067333, 121.525749, 0));
+//		car1Frames.add(new Frame(25.067637, 121.525760, 0));
+//		car1Frames.add(new Frame(25.067937, 121.525780, 0));
+//		car1Frames.add(new Frame(25.068338, 121.525764, 280));
+//		car1Frames.add(new Frame(25.068428, 121.525482, 270));
+//		car1Frames.add(new Frame(25.068462, 121.524988, 270));
+//		car1Frames.add(new Frame(25.068467, 121.524749, 270));
+//		car1Frames.add(new Frame(25.068469, 121.524373, 270));
+//		car1Frames.add(new Frame(25.068481, 121.523984, 270));
+//		car1Frames.add(new Frame(25.068472, 121.523739, 270));
+//		car1Frames.add(new Frame(25.068484, 121.523433, 270));
+//		car1Frames.add(new Frame(25.068478, 121.523122, 270));
+//	}
 }
