@@ -312,25 +312,15 @@ function drawPoi() {
 	poi7.setMap(map);
 	text = "<div>別府IC</div>";
 	poiTxt7 = new TxtOverlay(latlng, text, "poi-label", map);
-	// POI7
-	latlng = new google.maps.LatLng(33.247028, 131.619917);
-	poi7 = new google.maps.Marker({
-		position : latlng,
-		map : map
-	});
-	poi7.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png');
-	poi7.setMap(map);
-	text = "<div>弁天大橋</div>";
-	poiTxt7 = new TxtOverlay(latlng, text, "poi-label", map);
 	// POI8
-	latlng = new google.maps.LatLng(33.239417, 131.622222);
+	latlng = new google.maps.LatLng(33.247028, 131.619917);
 	poi8 = new google.maps.Marker({
 		position : latlng,
 		map : map
 	});
 	poi8.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png');
 	poi8.setMap(map);
-	text = "<div>舞鶴橋</div>";
+	text = "<div>弁天大橋</div>";
 	poiTxt8 = new TxtOverlay(latlng, text, "poi-label", map);
 	// POI9
 	latlng = new google.maps.LatLng(33.239417, 131.622222);
@@ -340,7 +330,7 @@ function drawPoi() {
 	});
 	poi9.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png');
 	poi9.setMap(map);
-	text = "<div>東生石交差点</div>";
+	text = "<div>舞鶴橋</div>";
 	poiTxt9 = new TxtOverlay(latlng, text, "poi-label", map);
 	// POI10
 	latlng = new google.maps.LatLng(33.243833, 131.587944);

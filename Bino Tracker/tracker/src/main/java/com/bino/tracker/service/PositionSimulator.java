@@ -2,6 +2,7 @@ package com.bino.tracker.service;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -525,7 +526,8 @@ public class PositionSimulator {
 	private void initCar1Frames() {
 		BufferedReader br = null;
 		try {
-			br = new BufferedReader(new FileReader(context.getRealPath("WEB-INF/data-car1.txt")));
+			// br = new BufferedReader(new FileReader(context.getRealPath("WEB-INF/data-car1.txt")));
+			br = new BufferedReader(new InputStreamReader(new FileInputStream(new File(context.getRealPath("WEB-INF/data-car1.txt"))), "UTF8"));
 			String line = br.readLine();
 			while (line != null) {
 				if (!line.isEmpty()) {
@@ -556,7 +558,7 @@ public class PositionSimulator {
 	private void initCar2Frames() {
 		BufferedReader br = null;
 		try {
-			br = new BufferedReader(new FileReader(context.getRealPath("WEB-INF/data-car2.txt")));
+			br = new BufferedReader(new InputStreamReader(new FileInputStream(new File(context.getRealPath("WEB-INF/data-car2.txt"))), "UTF8"));
 			String line = br.readLine();
 			while (line != null) {
 				if (!line.isEmpty()) {
@@ -764,7 +766,7 @@ public class PositionSimulator {
 
 	private void doWork() {
 		update(positions.get(0), car1Frames);
-		update(positions.get(1), car2Frames);
+		// update(positions.get(1), car2Frames);
 		index++;
 	}
 

@@ -779,10 +779,11 @@ li span {
 	padding-left: 5px;
 	padding-right: 5px;
 	color: #01579b;
+	z-index: 9 !important;
 }
 
 .gmnoprint {
-	z-index: 999 !important;
+	z-index: 10 !important;
 }
 
 /* Playback */
